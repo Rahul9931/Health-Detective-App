@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login_Activity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dim_20">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:src="@drawable/healthcare1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo"
+                android:gravity="center"
+                android:text="Welcome to HealthDetective App"
+                android:textColor="@color/skyblue13"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo"
+                android:text="Login to Continue"
+                android:textColor="@color/moreliteblack"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                // Start User
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim_10"
+                    android:layout_marginEnd="@dimen/dim_10"
+                    android:layout_marginTop="@dimen/dim_10"
+                    android:hint="Email"
+                    android:textColorHint="@color/moreliteblack"
+                    app:boxCornerRadiusBottomEnd="@dimen/dim_20"
+                    app:boxCornerRadiusBottomStart="@dimen/dim_20"
+                    app:boxCornerRadiusTopEnd="@dimen/dim_20"
+                    app:boxCornerRadiusTopStart="@dimen/dim_20"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:endIconMode="clear_text"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                // End User
+
+                // Start Passward
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_passward"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim_10"
+                    android:layout_marginTop="@dimen/dim_10"
+                    android:layout_marginEnd="@dimen/dim_10"
+                    android:hint="Password"
+                    android:textColorHint="@color/moreliteblack"
+                    app:boxCornerRadiusBottomEnd="@dimen/dim_20"
+                    app:boxCornerRadiusBottomStart="@dimen/dim_20"
+                    app:boxCornerRadiusTopEnd="@dimen/dim_20"
+                    app:boxCornerRadiusTopStart="@dimen/dim_20"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/black"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+                // End Passward
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forget Password"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/skyblue13"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginTop="5dp"
+                android:elevation="10dp"
+                />
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/skyblue13"
+                android:text="LOGIN"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:layout_marginTop="5dp"
+                android:elevation="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo"
+                android:text="OR"
+                android:textColor="@color/liteblack"
+                android:textSize="25sp"
+                android:layout_marginTop="5dp"/>
+            <Button
+                android:id="@+id/btn_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="SIGNUP"
+                android:textAllCaps="false"
+                android:textColor="@color/skyblue13"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:layout_marginTop="5dp"
+                android:elevation="10dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dim_3"
+    android:elevation="@dimen/dim_10"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dim_10"
+        >
+
+        <TextView
+            android:id="@+id/dieaseslabel"
+            android:layout_width="@dimen/dim_350"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/custom_bold_text1"
+            android:padding="@dimen/dim_5"
+            android:text="Chronic cholestasis"
+            android:textSize="@dimen/text_dim_35"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_appointment"
+            android:layout_width="@dimen/dim_40"
+            android:layout_height="@dimen/dim_40"
+            android:layout_marginEnd="@dimen/dim_10"
+            android:background="@android:color/transparent"
+            android:src="@drawable/appointment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_info"
+            android:layout_width="@dimen/dim_40"
+            android:layout_height="@dimen/dim_40"
+            android:layout_marginEnd="@dimen/dim_30"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_appointment"
+            app:layout_constraintEnd_toStartOf="@+id/btn_appointment"
+            app:layout_constraintTop_toTopOf="@+id/btn_appointment"
+            app:srcCompat="@drawable/information2" />
+
+        <TextView
+            android:id="@+id/dieasesaccuracy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dim_30"
+            android:fontFamily="@string/custom_bold_text1"
+            android:padding="@dimen/dim_5"
+            android:text="100%"
+            android:textSize="@dimen/text_dim_35"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_info"
+            app:layout_constraintEnd_toStartOf="@+id/btn_info"
+            app:layout_constraintTop_toTopOf="@+id/btn_info" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

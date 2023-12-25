@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Doctors_Information_Activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/doctorimage_appointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/female_doctor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imagebackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/bg3" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="Patients"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_dim_25"
+                app:layout_constraintBottom_toTopOf="@+id/noofpatients"
+                app:layout_constraintEnd_toEndOf="@+id/noofpatients"
+                app:layout_constraintStart_toStartOf="@+id/noofpatients" />
+
+            <TextView
+                android:id="@+id/noofpatients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_50"
+                android:layout_marginBottom="@dimen/dim_20"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="500"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_dim_25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="Experience"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_dim_25"
+                app:layout_constraintBottom_toTopOf="@+id/noofexp"
+                app:layout_constraintEnd_toEndOf="@+id/noofexp"
+                app:layout_constraintStart_toStartOf="@+id/noofexp" />
+
+            <TextView
+                android:id="@+id/noofexp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dim_20"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="5yr"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_dim_25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="Rating"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_dim_25"
+                app:layout_constraintBottom_toTopOf="@+id/noofrating"
+                app:layout_constraintEnd_toEndOf="@+id/noofrating"
+                app:layout_constraintStart_toStartOf="@+id/noofrating" />
+
+            <TextView
+                android:id="@+id/noofrating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dim_50"
+                android:layout_marginBottom="@dimen/dim_20"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="4.9"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_dim_25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/dname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_30"
+        android:layout_marginTop="@dimen/dim_30"
+        android:fontFamily="@string/custom_bold_text2"
+        android:text="Dr Looney"
+        android:textColor="@color/Softblue_skyblue1"
+        android:textSize="@dimen/text_dim_50"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/specialist_appointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@string/custom_simple_text1"
+        android:text="Infectious disease specialist or Pulmonologist"
+        android:textColor="@color/liteblack"
+        android:textSize="@dimen/text_dim_30"
+        app:layout_constraintStart_toStartOf="@+id/dname"
+        app:layout_constraintTop_toBottomOf="@+id/dname" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30"
+        android:text="About Us"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_dim_40"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/specialist_appointment"
+        app:layout_constraintTop_toBottomOf="@+id/specialist_appointment" />
+
+    <TextView
+        android:id="@+id/aboutus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_30"
+        android:layout_marginTop="@dimen/dim_10"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:fontFamily="@string/custom_simple_text1"
+        android:text="She believes in building strong relationships with his patients and providing them with the information and support they need to make informed decisions about their health."
+        android:textSize="@dimen/dim_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30"
+        android:text="Working At"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_dim_40"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/aboutus"
+        app:layout_constraintTop_toBottomOf="@+id/aboutus" />
+
+    <TextView
+        android:id="@+id/workingat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_30"
+        android:layout_marginTop="@dimen/dim_10"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:fontFamily="@string/custom_simple_text1"
+        android:text="Healing Touch Medical Center"
+        android:textSize="@dimen/dim_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30"
+        android:text="Contac Us"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_dim_40"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/workingat"
+        app:layout_constraintTop_toBottomOf="@+id/workingat" />
+
+        <ImageButton
+            android:id="@+id/chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_30"
+            android:background="@android:color/transparent"
+            android:contentDescription="send msg"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            app:srcCompat="@drawable/baseline_chat_36" />
+
+        <ImageButton
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim_40"
+            android:background="@android:color/transparent"
+            android:contentDescription="call"
+            app:layout_constraintBottom_toBottomOf="@+id/chat"
+            app:layout_constraintStart_toEndOf="@+id/chat"
+            app:layout_constraintTop_toTopOf="@+id/chat"
+            app:srcCompat="@drawable/baseline_call_36" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_gotoAppointment"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_80"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:backgroundTint="@color/Softblue_skyblue1"
+        android:fontFamily="@string/custom_bold_text2"
+        android:text="Go To Appointment"
+        android:textSize="@dimen/text_dim_50"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

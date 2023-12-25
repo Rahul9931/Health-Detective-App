@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dim_100"
+    android:layout_margin="@dimen/dim_5"
+    android:elevation="@dimen/dim_10"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/fileimage"
+            android:layout_width="@dimen/dim_120"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dim_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/file" />
+
+        <TextView
+            android:id="@+id/filename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10"
+            android:layout_marginStart="@dimen/dim_20"
+            android:text="surgirial.pdf"
+            android:textSize="@dimen/dim_30"
+            android:fontFamily="@string/custom_bold_text1"
+            app:layout_constraintStart_toEndOf="@+id/fileimage"
+            app:layout_constraintTop_toTopOf="@+id/fileimage" />
+
+        <ImageView
+            android:id="@+id/status"
+            android:layout_width="@dimen/dim_60"
+            android:layout_height="@dimen/dim_60"
+            android:layout_margin="@dimen/dim_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/loading" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

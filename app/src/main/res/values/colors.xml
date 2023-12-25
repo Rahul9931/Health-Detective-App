@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FA0606</color>
+
+    // Softblue Sky Color Schema
+    <color name="Softblue_skyblue1">#019EF3</color>
+    <color name="Softblue_skyblue2">#00B0FC</color>
+    <color name="Softblue_skyblue3">#02BEFD</color>
+    <color name="Softblue_skyblue4">#56CAFB</color>
+    <color name="Softblue_skyblue5">#76D3FE</color>
+    <color name="Softblue_skyblue6">#A4DFFD</color>
+
+    // Trendy Blue Monochromatic Color Schema
+    <color name="Trendyblue1">#0041C7</color>
+    <color name="Trendyblue2">#0160C9</color>
+    <color name="Trendyblue3">#0D85D8</color>
+    <color name="Trendyblue4">#1CA3DE</color>
+    <color name="Trendyblue5">#3ACBE8</color>
+
+    // Sky Blue Gradient Color Schema
+    <color name="Gradient_skyblue1">#35D6ED</color>
+    <color name="Gradient_skyblue2">#65DDEF</color>
+    <color name="Gradient_skyblue3">#7AE5F5</color>
+    <color name="Gradient_skyblue4">#97EBF4</color>
+    <color name="Gradient_skyblue5">#C9F6FF</color>
+    <color name="liteblack">#4A4747</color>
+    <color name="button_background_color">#E2F4FB</color>
+    <color name="moreliteblack">#9F9B9B</color>
+    <color name="green">#95FC1E</color>
+
+    //
+    <color name="skyblue1">#f5fbff</color>
+    <color name="skyblue2">#e1f4ff</color>
+    <color name="skyblue3">#ccedff</color>
+    <color name="skyblue4">#b8e6ff</color>
+    <color name="skyblue5">#a4dfff</color>
+    <color name="skyblue6">#8fd7ff</color>
+    <color name="skyblue7">#7bd0fe</color>
+    <color name="skyblue8">#67c9fe</color>
+    <color name="skyblue9">#52c2fe</color>
+    <color name="skyblue10">#3ebbfe</color>
+    <color name="skyblue11">#2ab3fe</color>
+    <color name="skyblue12">#15acfe</color>
+    <color name="skyblue13">#01a5fe</color>
+    <color name="skyblue14">#0198ea</color>
+    <color name="skyblue15">#018bd5</color>
+    <color name="skyblue16">#017dc1</color>
+    <color name="skyblue17">#0170ad</color>
+    <color name="skyblue18">#016398</color>
+    <color name="orange">#FF9800</color>
+    <color name="header_background_color">#8692F7</color>
+</resources>

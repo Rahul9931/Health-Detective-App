@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">HealthDetectiveApp</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="closeDrawer">Close Drawer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="check_dieases">Check Dieases On Symptoms</string>
+    <string name="brain_tumor">Check Brain Tumar</string>
+    <string name="Choose_more_than_3">Please Choose 3 or More Symptoms For Best Prediction</string>
+    <string name="title">"@font/montserrat_subrayada"</string>
+    <string name="custom_simple_text1">"@font/lato_bold"</string>
+    <string name="custom_simple_text2">"@font/lato"</string>
+    <string name="custom_simple_text3">"@font/open_sans"</string>
+    <string name="custom_bold_text1">"@font/roboto_bold"</string>
+    <string name="custom_bold_text2">"@font/roboto_medium"</string>
+    <string name="Dieases_Detection_On_Image_Title">Please choose Brain Tumar Images for right result otherwise it gives wrong result</string>
+    <string name="appointment_status">Appointment Status</string>
+    <string name="underweight"><![CDATA[<18.5]]></string>
+    <string name="Obese"><![CDATA[>30]]></string>
+    <string name="Normal">18.5 - 24.9</string>
+    <string name="overweight">25.0 - 29.9</string>
+</resources>

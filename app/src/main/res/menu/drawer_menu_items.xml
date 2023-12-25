@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:checkable="true"
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/menu_home_selecter"
+        />
+    <item
+        android:checkable="true"
+        android:id="@+id/Dieasesinfo"
+        android:title="Dieases Information"
+        android:icon="@drawable/menu_info_selector"
+        />
+    <item
+        android:id="@+id/appointment"
+        android:title="Doctor Appointment"
+        android:checkable="true"
+        android:icon="@drawable/appoint"
+        android:iconTint="@color/black"
+        />
+    <item
+        android:id="@+id/appointstatus"
+        android:title="Appointment Status"
+        android:checkable="true"
+        android:icon="@drawable/appointment_status_check"
+        android:iconTint="@color/black"
+        />
+    <item
+        android:id="@+id/bmi"
+        android:title="BMI Calculator"
+        android:checkable="true"
+        android:icon="@drawable/bmi"
+        android:iconTint="@color/black"
+        />
+    <item
+        android:id="@+id/savepatientsdata"
+        android:title="Upload Patients Data"
+        android:checkable="true"
+        android:icon="@drawable/save_patients_data"
+        android:iconTint="@color/black"
+        />
+</menu>

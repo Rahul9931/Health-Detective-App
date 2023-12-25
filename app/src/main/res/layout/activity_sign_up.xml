@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp_Activity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:context=".Login">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:src="@drawable/healthcare" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo"
+                android:text="Signup"
+                android:textColor="@color/skyblue13"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo"
+                android:text="Create Account New User"
+                android:textColor="@color/skyblue13"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_username_signup"
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="Username"
+                    app:boxCornerRadiusBottomEnd="@dimen/dim_20"
+                    app:boxCornerRadiusBottomStart="@dimen/dim_20"
+                    app:boxCornerRadiusTopEnd="@dimen/dim_20"
+                    app:boxCornerRadiusTopStart="@dimen/dim_20"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                // End Username
+
+                // Start Email
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_email_signup"
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="Phone"
+                    app:boxCornerRadiusBottomEnd="@dimen/dim_20"
+                    app:boxCornerRadiusBottomStart="@dimen/dim_20"
+                    app:boxCornerRadiusTopEnd="@dimen/dim_20"
+                    app:boxCornerRadiusTopStart="@dimen/dim_20"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                // End Email
+
+                // Start Phone number
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_phonenumber_signup"
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="Email"
+                    app:boxCornerRadiusBottomEnd="@dimen/dim_20"
+                    app:boxCornerRadiusBottomStart="@dimen/dim_20"
+                    app:boxCornerRadiusTopEnd="@dimen/dim_20"
+                    app:boxCornerRadiusTopStart="@dimen/dim_20"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                // End Phone number
+
+                // Start Passward
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_passward_signup"
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="Passward"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/black"
+                    app:boxCornerRadiusBottomEnd="@dimen/dim_20"
+                    app:boxCornerRadiusBottomStart="@dimen/dim_20"
+                    app:boxCornerRadiusTopEnd="@dimen/dim_20"
+                    app:boxCornerRadiusTopStart="@dimen/dim_20"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+                // End Passward
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/skyblue13"
+                android:text="REGISTER"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:layout_marginTop="20dp"
+                android:elevation="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo"
+                android:text="OR"
+                android:textColor="@color/moreliteblack"
+                android:textSize="25sp"
+                android:layout_marginTop="5dp"/>
+            <Button
+                android:id="@+id/btn_gotoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="CLICK HERE TO LOGIN"
+                android:textAllCaps="false"
+                android:textColor="@color/skyblue13"
+                android:textStyle="bold"
+                android:textSize="23sp"
+                android:layout_marginTop="5dp"
+                android:elevation="10dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

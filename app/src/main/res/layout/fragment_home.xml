@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="scrollview"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/dieasesonsymptoms"
+                android:layout_width="@dimen/dim_300"
+                android:layout_height="@dimen/dim_350"
+                android:layout_margin="@dimen/dim_20"
+                app:cardCornerRadius="@dimen/dim_30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Softblue_skyblue3">
+
+                    <ImageView
+                        android:id="@+id/img0"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        android:layout_marginTop="@dimen/dim_40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/healthcheck" />
+
+                    <TextView
+                        android:id="@+id/label0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10"
+                        android:padding="@dimen/dim_10"
+                        android:text="@string/check_dieases"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dim_35"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/brain_tumar_card"
+                android:layout_width="@dimen/dim_300"
+                android:layout_height="@dimen/dim_350"
+                android:layout_margin="@dimen/dim_20"
+                app:cardCornerRadius="@dimen/dim_30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Softblue_skyblue3">
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        android:layout_marginTop="@dimen/dim_40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/brain" />
+
+                    <TextView
+                        android:id="@+id/label1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10"
+                        android:padding="@dimen/dim_10"
+                        android:text="@string/brain_tumor"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dim_35"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Alzimer_card"
+                android:layout_width="@dimen/dim_300"
+                android:layout_height="@dimen/dim_350"
+                android:layout_margin="@dimen/dim_20"
+                app:cardCornerRadius="@dimen/dim_30"
+                app:layout_constraintEnd_toEndOf="@+id/dieasesonsymptoms"
+                app:layout_constraintStart_toStartOf="@+id/dieasesonsymptoms"
+                app:layout_constraintTop_toBottomOf="@+id/dieasesonsymptoms">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Softblue_skyblue3">
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        android:layout_marginTop="@dimen/dim_40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/alzheimer" />
+
+                    <TextView
+                        android:id="@+id/label2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10"
+                        android:padding="@dimen/dim_10"
+                        android:text="Check Alzimer"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dim_35"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Lungs_cancer_card"
+                android:layout_width="@dimen/dim_300"
+                android:layout_height="@dimen/dim_350"
+                android:layout_margin="@dimen/dim_20"
+                app:cardCornerRadius="@dimen/dim_30"
+                app:layout_constraintEnd_toEndOf="@+id/brain_tumar_card"
+                app:layout_constraintStart_toStartOf="@+id/brain_tumar_card"
+                app:layout_constraintTop_toBottomOf="@+id/brain_tumar_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Softblue_skyblue3">
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        android:layout_marginTop="@dimen/dim_40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/lung_cancer" />
+
+                    <TextView
+                        android:id="@+id/label3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10"
+                        android:padding="@dimen/dim_10"
+                        android:text="Check Lungs Cancer"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dim_35"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--<androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="@dimen/dim_300"
+                android:layout_height="@dimen/dim_350"
+                android:layout_margin="@dimen/dim_20"
+                app:cardCornerRadius="@dimen/dim_30"
+                app:layout_constraintEnd_toEndOf="@+id/Alzimer_card"
+                app:layout_constraintStart_toStartOf="@+id/Alzimer_card"
+                app:layout_constraintTop_toBottomOf="@+id/Alzimer_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Softblue_skyblue3">
+
+                    <ImageView
+                        android:id="@+id/img4"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        android:layout_marginTop="@dimen/dim_40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/healthcheck" />
+
+                    <TextView
+                        android:id="@+id/label4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10"
+                        android:padding="@dimen/dim_10"
+                        android:text="Check Dieases On Symptoms"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dim_35"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>-->
+
+            <!--<androidx.cardview.widget.CardView
+                android:layout_width="@dimen/dim_300"
+                android:layout_height="@dimen/dim_350"
+                android:layout_margin="@dimen/dim_20"
+                app:cardCornerRadius="@dimen/dim_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/Lungs_cancer_card"
+                app:layout_constraintStart_toStartOf="@+id/Lungs_cancer_card"
+                app:layout_constraintTop_toBottomOf="@+id/Lungs_cancer_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/Softblue_skyblue3">
+
+                    <ImageView
+                        android:id="@+id/img5"
+                        android:layout_width="@dimen/dim_130"
+                        android:layout_height="@dimen/dim_130"
+                        android:layout_marginTop="@dimen/dim_40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/healthcheck" />
+
+                    <TextView
+                        android:id="@+id/label5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_10"
+                        android:padding="@dimen/dim_10"
+                        android:text="Check Dieases On Symptoms"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dim_35"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img5" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

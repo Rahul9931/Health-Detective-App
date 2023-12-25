@@ -1,0 +1,47 @@
+Dermatologist
+Allergist
+Gastroenterologist
+Gastroenterologist or Hepatologist
+Allergist or Dermatologist
+Gastroenterologist
+Infectious disease specialist
+Endocrinologist
+Gastroenterologist
+Pulmonologist or Allergist
+Cardiologist or Internist
+Neurologist
+Orthopedic surgeon or Neurologist
+Neurologist or Neurosurgeon
+Gastroenterologist or Hepatologist
+Infectious disease specialist
+Dermatologist
+Infectious disease specialist
+Infectious disease specialist
+Gastroenterologist or Hepatologist
+Gastroenterologist or Hepatologist
+Gastroenterologist or Hepatologist
+Gastroenterologist or Hepatologist
+Gastroenterologist or Hepatologist
+Gastroenterologist or Hepatologist
+Infectious disease specialist or Pulmonologist
+Family physician or Internist
+Pulmonologist or Internist
+Gastroenterologist or Colorectal surgeon
+Cardiologist or Interventional cardiologist
+Vascular surgeon or Dermatologic surgeon
+Endocrinologist
+Endocrinologist
+Endocrinologist
+Orthopedic surgeon or Rheumatologist
+Rheumatologist
+Otolaryngologist or Neurologist
+Dermatologist
+Urologist or Family physician
+Dermatologist or Rheumatologist
+Dermatologist or Pediatrician
+Neurosurgeon
+Oncologist
+Gerontologist or Neurologist
+nutrionist or a dietitian
+bariatricians or obesity specialists
+bariatricians or obesity specialists

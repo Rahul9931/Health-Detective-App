@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DieasesDiagnoseByImage">
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_20"
+                android:fontFamily="@string/custom_simple_text1"
+                android:text="@string/Dieases_Detection_On_Image_Title"
+                android:textAlignment="center"
+                android:textColor="@color/Softblue_skyblue1"
+                android:textSize="@dimen/dim_40"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSampleImage"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click here for \nshow sample image"
+                android:textColor="@color/Softblue_skyblue5"
+                android:textSize="@dimen/dim_30"
+                android:fontFamily="@string/custom_simple_text1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <ImageView
+                android:id="@+id/dieasesImage"
+                android:layout_width="@dimen/dim_400"
+                android:layout_height="@dimen/dim_350"
+                android:layout_marginTop="@dimen/dim_20"
+                android:src="@drawable/camera_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnSampleImage"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCamera"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_30"
+                android:layout_marginTop="@dimen/dim_30"
+                android:backgroundTint="@color/button_background_color"
+                android:text="Camera"
+                android:fontFamily="@string/custom_bold_text2"
+                android:textColor="@color/Softblue_skyblue1"
+                android:textSize="@dimen/dim_35"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dieasesImage" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGallery"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_30"
+                android:layout_marginEnd="@dimen/dim_30"
+                android:backgroundTint="#E2F4FB"
+                android:text="Gelery"
+                android:textColor="@color/Softblue_skyblue1"
+                android:textSize="@dimen/dim_35"
+                android:textStyle="bold"
+                android:fontFamily="@string/custom_bold_text2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dieasesImage" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowResult"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_20"
+                android:layout_marginTop="@dimen/dim_40"
+                android:layout_marginEnd="@dimen/dim_20"
+                android:backgroundTint="@color/Softblue_skyblue5"
+                android:text="Show Result"
+                android:textSize="@dimen/dim_40"
+                android:textStyle="bold"
+                android:fontFamily="@string/custom_simple_text2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/resultContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_280"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnShowResult">
+
+                <TextView
+                    android:id="@+id/Result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim_20"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/dim_55"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dieasesInfo_image"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim_20"
+                    android:layout_marginBottom="@dimen/dim_10"
+                    android:text="Dieases \nInformation"
+                    android:textColor="@color/Softblue_skyblue1"
+                    android:textSize="@dimen/dim_25"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:strokeColor="@color/Softblue_skyblue1"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/doctorAppointment_image"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dim_20"
+                    android:layout_marginBottom="10dp"
+                    android:text="Doctor \nAppontment"
+                    android:textColor="@color/Softblue_skyblue1"
+                    android:textSize="@dimen/dim_25"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:strokeColor="@color/Softblue_skyblue1"
+                    app:strokeWidth="1dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

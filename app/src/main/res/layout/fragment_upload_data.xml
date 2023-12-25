@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.UploadDataFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:id="@+id/showdialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/custom_bold_text1"
+            android:layout_marginTop="@dimen/dim_30"
+            android:text="Patients Records"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_60"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_patientsrecord"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dim_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/showdialog" />
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btn_float"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dim_30"
+            android:layout_marginEnd="@dimen/dim_30"
+            android:text="Upload Records"
+            app:icon="@drawable/baseline_add_24"
+            android:fontFamily="@string/custom_bold_text1"
+            android:textSize="@dimen/text_dim_30"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_patientsrecord"
+            app:layout_constraintEnd_toEndOf="@+id/rv_patientsrecord" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
