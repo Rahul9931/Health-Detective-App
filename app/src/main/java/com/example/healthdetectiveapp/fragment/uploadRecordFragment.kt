@@ -19,10 +19,7 @@ import com.example.healthdetectiveapp.model.FileInformationModel
 import com.example.healthdetectiveapp.model.PatientsRecordsModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.text.DateFormat
@@ -112,7 +109,7 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
 
                         // Get Current Date and Time
                         val calendar = Calendar.getInstance().time
-                        val dateFormat = DateFormat.getDateInstance(DateFormat.FULL).format(calendar)
+                        val CurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar)
                         val timeFormat = DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar)
 
                         files.add(filename!!)
@@ -122,14 +119,18 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
                         val fileRef = storageReference.child("patientsRecord/$filename")
                         fileRef.putFile(imageUri)
                             .addOnSuccessListener {
-                                if (mimeType.startsWith("image")){
                                     fileRef.downloadUrl.addOnSuccessListener { downloadurl ->
-                                        uploadPatientsRecords(downloadurl,fileRef,filename,filesize,fileextension,dateFormat,timeFormat)
+                                        uploadPatientsRecords(
+                                            downloadurl,
+                                            fileRef,
+                                            filename,
+                                            filesize,
+                                            fileextension,
+                                            CurrentDate,
+                                            timeFormat,
+                                            mimeType
+                                        )
                                     }
-                                }
-                                else{
-                                    uploadPatientsRecords(downloadurl=null,fileRef,filename,filesize,fileextension,dateFormat,timeFormat)
-                                }
                                 status.removeAt(index)
                                 status.add(index,"done")
                                 uploadFileAdapter.notifyDataSetChanged()
@@ -168,10 +169,10 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
 
                     // Get Current Date and Time
                     val calendar = Calendar.getInstance().time
-                    val dateFormat = DateFormat.getDateInstance(DateFormat.FULL).format(calendar)
+                    val CurrentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar)
                     val timeFormat = DateFormat.getTimeInstance(DateFormat.SHORT).format(calendar)
 
-                    Log.d("test_date","$dateFormat")
+                    Log.d("test_date","$CurrentDate")
                     Log.d("test_time","$timeFormat")
                     files.add(filename!!)
                     status.add("loading")
@@ -179,14 +180,9 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
                     val fileRef = storageReference.child("patientsRecord/$filename")
                     fileRef.putFile(imageUri)
                         .addOnSuccessListener {
-                                if (mimeType.startsWith("image")){
                                     fileRef.downloadUrl.addOnSuccessListener { downloadurl ->
-                                        uploadPatientsRecords(downloadurl,fileRef,filename,filesize,fileextension,dateFormat,timeFormat)
+                                        uploadPatientsRecords(downloadurl,fileRef,filename,filesize,fileextension,CurrentDate,timeFormat,mimeType)
                                     }
-                                }
-                                else{
-                                    uploadPatientsRecords(downloadurl=null,fileRef,filename,filesize,fileextension,dateFormat,timeFormat)
-                                }
                             status.remove("loading")
                             status.add("done")
                             uploadFileAdapter.notifyDataSetChanged()
@@ -207,60 +203,31 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
         downloadurl: Uri?,
         fileRef: StorageReference,
         fileName: String,
-        filesize: Double,
+        filesize: String,
         fileextension: String,
-        dateFormat: String,
-        timeFormat: String
+        CurrentDate: String,
+        timeFormat: String,
+        mimeType: String
     ) {
-        // Prepare Data                                                                         
-        val fileInfo = listOf(
-            FileInformationModel(fileName,filesize.toString(),fileextension,downloadurl.toString(),timeFormat)
-        )
-        val patientRecord = PatientsRecordsModel(dateFormat,fileInfo)
         // Get Patients Records Reference
         val patientsRecordsRef = database.reference.child("PatientsRecords")
         // Get User id
         val userid = auth.currentUser!!.uid
         // Fetch Patients Record for comparision
-        val dateKeyRef = patientsRecordsRef.child(userid).child(dateFormat)
-        /*dateKeyRef.setValue(dateKey)
-        dateKeyRef.child("fileinformationlist").push().setValue(fileInfo)*/
-        dateKeyRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    Toast.makeText(requireContext(), "Equal Date", Toast.LENGTH_SHORT).show()
-                    val fileInformationRef = patientsRecordsRef.child(userid).child(dateFormat).child("fileinformaionlist")
-                    fileInformationRef.push().setValue(fileInfo).addOnSuccessListener {
-                        Toast.makeText(requireContext(), "Successfully Upload", Toast.LENGTH_SHORT).show()
-                    }
-                        .addOnFailureListener {
-                            Toast.makeText(requireContext(), "Upload Fail", Toast.LENGTH_SHORT).show()
-                            Log.d("uploadRecordFragment_upload fail","${it.message}")
-                        }
-
-                    }
-                else{
-                    patientsRecordsRef.child(userid).child(dateFormat).setValue(patientRecord).addOnSuccessListener {
-                        Toast.makeText(requireContext(), "Successfully Upload", Toast.LENGTH_SHORT).show()
-                        /*val fileInformationRef = patientsRecordsRef.child(userid).child(dateFormat).child("fileinformaionlist")
-                        fileInformationRef.push().setValue(fileInfo).addOnSuccessListener {
-                            Toast.makeText(requireContext(), "Successfully Upload", Toast.LENGTH_SHORT).show()
-                        }
-                            .addOnFailureListener {
-                                Toast.makeText(requireContext(), "Upload Fail", Toast.LENGTH_SHORT).show()
-                                Log.d("uploadRecordFragment_upload fail","${it.message}")
-                            }*/
-                    }
-                        .addOnFailureListener {
-                            Toast.makeText(requireContext(), "Upload Fail", Toast.LENGTH_SHORT).show()
-                            Log.d("test_uploadfail","${it.message}")
-                        }
-                }
+        val dateKeyRef = patientsRecordsRef.child(userid).child(CurrentDate)
+        // Prepare Data                                                                         
+        val fileInfo = listOf(
+            FileInformationModel(fileName,filesize.toString(),fileextension,mimeType,downloadurl.toString(),false,timeFormat)
+        )
+        // Set key to each and every file
+        val filesMap:MutableMap<String,Any> = mutableMapOf()
+        for (file in fileInfo){
+            val fileId = dateKeyRef.push().key
+            fileId?.let {
+                filesMap[it] = file
             }
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
+        }
+        dateKeyRef.updateChildren(filesMap)
     }
 
     private fun getFileNameFromUri(uri: Uri): String? {
@@ -282,7 +249,7 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
         return extension.toString()
     }
 
-    private fun getFileSizeFromUri(uri: Uri): Double {
+    private fun getFileSizeFromUri(uri: Uri): String {
         // Open a file descriptor for the URI
         val fileDescriptor: ParcelFileDescriptor? = contentResolver.openFileDescriptor(uri, "r")
         // get the file size from fileDescriptor
@@ -293,7 +260,20 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
         val fileSizeInMB = fileSizeInKB/1024.0
         // close the file descriptor when done
         fileDescriptor?.close()
-        return decimalFormat.format(fileSizeInMB).toDouble()
+        var file_size:String
+        if (fileSizeInMB<1){
+            if (fileSizeInKB<1){
+                file_size = "${decimalFormat.format(fileSize).toDouble()} byte"
+            }
+            else{
+                file_size = "${decimalFormat.format(fileSizeInKB).toDouble()} kb"
+            }
+        }
+        else{
+            file_size = "${decimalFormat.format(fileSizeInMB).toDouble()} mb"
+        }
+
+        return file_size
     }
 
 }

@@ -24,6 +24,6 @@ class PatientsRecordsAdapter(private val context: Context,private val RecordsLis
     override fun onBindViewHolder(holder: PatientsRecordsViewHolder, position: Int) {
         holder.binding.dateRecords.text = RecordsList[position].date
         holder.binding.rvRecords.layoutManager = LinearLayoutManager(context)
-        //holder.binding.rvRecords.adapter = FileInformationAdapter(context,RecordsList[position].fileinformaionlist)
+        holder.binding.rvRecords.adapter = FileInformationAdapter(context,RecordsList[position].fileInfo)
     }
 }

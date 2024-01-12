@@ -6,6 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.denzcoskun.imageslider.constants.AnimationTypes
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
+import com.denzcoskun.imageslider.models.SlideModel
 import com.example.healthdetectiveapp.DieasesDiagnoseByImage
 import com.example.healthdetectiveapp.Dieases_Detection_Activity
 import com.example.healthdetectiveapp.R
@@ -46,6 +51,32 @@ class HomeFragment : Fragment() {
             startActivity(lungsCancerIntent)
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val imageList = ArrayList<SlideModel>()
+
+        imageList.add(SlideModel(R.drawable.slider1, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider2, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider3, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider4, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider5, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.slider6, ScaleTypes.FIT))
+
+        val imageSlider = binding.imageSlider
+        imageSlider.setImageList(imageList)
+        imageSlider.setImageList(imageList, ScaleTypes.FIT)
+        imageSlider.setSlideAnimation(AnimationTypes.DEPTH_SLIDE)
+        imageSlider.setItemClickListener(object : ItemClickListener {
+            override fun doubleClick(position: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onItemSelected(position: Int) {
+                Toast.makeText(context, "Selected Image $position", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
 }

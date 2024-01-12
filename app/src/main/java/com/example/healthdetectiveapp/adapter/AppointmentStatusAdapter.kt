@@ -18,7 +18,6 @@ class AppointmentStatusAdapter(
     private val patientList: ArrayList<PatientModel>
 ):
     RecyclerView.Adapter<AppointmentStatusAdapter.AppointmentStatusViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentStatusViewHolder {
         val binding = PatientCardBinding.inflate(LayoutInflater.from(context),parent,false)
         return AppointmentStatusViewHolder(binding)

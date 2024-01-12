@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dim_100"
+    android:layout_height="@dimen/dim_130"
     android:layout_margin="@dimen/dim_5"
     android:elevation="@dimen/dim_10"
     >
@@ -27,11 +27,11 @@
             android:id="@+id/filename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dim_10"
             android:layout_marginStart="@dimen/dim_20"
-            android:text="surgirial.pdf"
-            android:textSize="@dimen/dim_30"
+            android:layout_marginTop="@dimen/dim_10"
             android:fontFamily="@string/custom_bold_text1"
+            android:text="surgirial.pdf"
+            android:textSize="@dimen/dim_35"
             app:layout_constraintStart_toEndOf="@+id/fileimage"
             app:layout_constraintTop_toTopOf="@+id/fileimage" />
 
@@ -44,5 +44,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/loading" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10"
+            android:fontFamily="@string/custom_simple_text2"
+            android:text="234.54 kb"
+            android:textSize="@dimen/dim_30"
+            app:layout_constraintStart_toStartOf="@+id/filename"
+            app:layout_constraintTop_toBottomOf="@+id/filename" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

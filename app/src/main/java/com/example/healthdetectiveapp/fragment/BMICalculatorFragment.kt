@@ -56,6 +56,7 @@ class BMICalculatorFragment : Fragment() {
         binding.whatbmi.setOnClickListener {
             val whatbmiIntent = Intent(requireContext(), DieasesInformation_Activity::class.java)
             whatbmiIntent.putExtra("urlIndex",47)
+            whatbmiIntent.putExtra("requestCode","bmiResultInformation")
             startActivity(whatbmiIntent)
         }
         return binding.root

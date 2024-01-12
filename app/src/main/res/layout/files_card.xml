@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/filecontainer_filecard"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dim_100"
-    android:layout_margin="@dimen/dim_5"
-    android:elevation="@dimen/dim_10"
-    >
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_height="@dimen/dim_130"
+    android:layout_margin="@dimen/dim_5">
 
         <ImageView
             android:id="@+id/fileimage_filescard"
@@ -21,19 +15,29 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/file" />
+            android:src="@drawable/file" />
 
         <TextView
             android:id="@+id/filename_filecard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dim_10"
             android:layout_marginStart="@dimen/dim_20"
-            android:text="surgirial.pdf"
-            android:textSize="@dimen/dim_30"
+            android:layout_marginTop="@dimen/dim_10"
             android:fontFamily="@string/custom_bold_text1"
+            android:text="surgirial.pdf"
+            android:textSize="@dimen/dim_35"
             app:layout_constraintStart_toEndOf="@+id/fileimage_filescard"
             app:layout_constraintTop_toTopOf="@+id/fileimage_filescard" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/filesize_filecard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_10"
+            android:fontFamily="@string/custom_simple_text2"
+            android:text="234.54 kb"
+            android:textSize="@dimen/dim_30"
+            app:layout_constraintStart_toStartOf="@+id/filename_filecard"
+            app:layout_constraintTop_toBottomOf="@+id/filename_filecard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

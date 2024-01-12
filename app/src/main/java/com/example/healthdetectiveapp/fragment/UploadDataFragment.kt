@@ -57,7 +57,7 @@ class UploadDataFragment : Fragment() {
         binding = FragmentUploadDataBinding.inflate(inflater, container, false)
 
         // Fetch Patients Records from Firebase
-        //fetchPatientsRecords()
+        fetchPatientsRecords()
         // Shrink Floating Button
         binding.rvPatientsrecord.shrinkFabOnScroll(binding.btnFloat)
 
@@ -74,14 +74,35 @@ class UploadDataFragment : Fragment() {
         val userid = auth.currentUser!!.uid
         val patientsRecordsRef = database.reference.child("PatientsRecords")
         val userIdRef = patientsRecordsRef.child(userid)
-        userIdRef.addListenerForSingleValueEvent(object : ValueEventListener{
+        userIdRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-
+                val dateFilesList:MutableList<PatientsRecordsModel> = mutableListOf()
+                for (dateSnapshot in snapshot.children){
+                    Log.d("exam_dateSnapshot","${dateSnapshot}")
+                    val date = dateSnapshot.key.toString()
+                    Log.d("exam_date","${date}")
+                    val filesList:MutableList<FileInformationModel> = mutableListOf()
+                    for (fileSnapshot in dateSnapshot.children){
+                        Log.d("exam_fileSnapshot","${fileSnapshot}")
+                        val eachFile = fileSnapshot.getValue(FileInformationModel::class.java)
+                        Log.d("exam_eachFile","${eachFile}")
+                        eachFile?.let { filesList.add(it) }
+                    }
+                    val dateFiles = PatientsRecordsModel(date,filesList)
+                    dateFilesList.add(dateFiles)
+                }
+                setAdapter(dateFilesList)
             }
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
 
         })
+    }
+
+    private fun setAdapter(dateFilesList: MutableList<PatientsRecordsModel>) {
+        binding.rvPatientsrecord.layoutManager = LinearLayoutManager(requireContext())
+        val patientsRecordAdapter = PatientsRecordsAdapter(requireContext(),dateFilesList)
+        binding.rvPatientsrecord.adapter = patientsRecordAdapter
     }
 }

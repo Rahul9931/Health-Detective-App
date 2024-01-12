@@ -13,7 +13,7 @@
         android:layout_marginStart="@dimen/dim_20"
         android:text="16 December 2023"
         android:fontFamily="@string/custom_bold_text1"
-        android:textSize="@dimen/dim_40"
+        android:textSize="@dimen/dim_35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
