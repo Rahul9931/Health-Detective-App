@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Fetch User Profile Data
-        //fetchUserProfileData()
+        fetchUserProfileData()
         // Load Fragment After Request
         request = intent.getStringExtra("OpenScreen")
         dieasesLabel = intent.getStringExtra("dieases")
