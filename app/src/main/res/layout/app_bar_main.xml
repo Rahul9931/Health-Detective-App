@@ -15,7 +15,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Gradient_skyblue1"
+        android:background="@color/Softblue_skyblue3"
 
         />
     </com.google.android.material.appbar.AppBarLayout>

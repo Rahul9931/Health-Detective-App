@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onItemSelected(position: Int) {
-                Toast.makeText(context, "Selected Image $position", Toast.LENGTH_LONG).show()
+
             }
         })
     }
