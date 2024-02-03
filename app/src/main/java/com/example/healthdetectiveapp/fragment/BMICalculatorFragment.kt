@@ -45,7 +45,6 @@ class BMICalculatorFragment : Fragment() {
             var bmi = weight/(totalm*totalm)
             totalcm = String.format("%.1f",totalcm).toDouble()
             bmi = String.format("%.1f",bmi).toDouble()
-            Toast.makeText(requireContext(),"$bmi", Toast.LENGTH_LONG).show()
             val bmiResultIntent = Intent(requireContext(),BMI_Result_Activity::class.java)
             bmiResultIntent.putExtra("bmiresult",bmi)
             bmiResultIntent.putExtra("height",totalcm)

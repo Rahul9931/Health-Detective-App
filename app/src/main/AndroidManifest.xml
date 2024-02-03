@@ -29,10 +29,10 @@
             android:exported="true"></activity>
         <activity
             android:name=".SignUp_Activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Login_Activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".BMI_Result_Activity"
             android:exported="false" />
@@ -41,19 +41,19 @@
             android:exported="false" />
         <activity
             android:name=".Appointment_Activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Doctors_Information_Activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Recommender_Activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".practice.practice_activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".DieasesInformation_Activity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".DieasesDiagnoseByImage"
             android:exported="false" />
@@ -62,7 +62,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false">
         </activity>
 
         <meta-data

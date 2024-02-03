@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="@dimen/dim_100"
-    android:background="@color/white"
+    android:background="@drawable/bottom_sheet_background"
+    android:layout_marginStart="@dimen/dim_30"
+    android:layout_marginEnd="@dimen/dim_30"
     tools:context=".fragment.uploadRecordFragment">
 
 
@@ -27,7 +29,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@string/custom_bold_text1"
         android:layout_marginTop="@dimen/dim_30"
-        android:text="Patients Records"
+        android:text="Upload Records"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/text_dim_60"

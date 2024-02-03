@@ -60,7 +60,7 @@
             android:layout_marginStart="@dimen/dim_15"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="@dimen/dim_15"
-            android:backgroundTint="@color/Softblue_skyblue5"
+            android:backgroundTint="@color/Softblue_skyblue1"
             android:text="Get Information"
             android:textSize="@dimen/dim_45"
             android:textStyle="bold"

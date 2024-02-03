@@ -9,12 +9,61 @@
     tools:context=".SplashScreen">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/splash_img"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dim_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slogan"
         app:srcCompat="@drawable/splashimg" />
+
+    <ImageView
+        android:id="@+id/logo_img"
+        android:layout_width="@dimen/dim_190"
+        android:layout_height="@dimen/dim_190"
+        android:layout_marginStart="@dimen/dim_100"
+        android:layout_marginTop="@dimen/dim_50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hd_logo" />
+
+    <TextView
+        android:id="@+id/hd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sonsie_one"
+        android:text="HD"
+        android:textSize="@dimen/text_dim_150"
+        android:textColor="@color/hd_color"
+        app:layout_constraintBottom_toBottomOf="@+id/logo_img"
+        app:layout_constraintStart_toEndOf="@+id/logo_img"
+        app:layout_constraintTop_toTopOf="@+id/logo_img" />
+
+    <TextView
+        android:id="@+id/hd_full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Health Detectives"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dim_60"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/hd"
+        app:layout_constraintStart_toStartOf="@+id/logo_img"
+        app:layout_constraintTop_toBottomOf="@+id/logo_img" />
+
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_10"
+        android:text="Your Health is Our First Priority"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dim_50"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hd_full" />
 </androidx.constraintlayout.widget.ConstraintLayout>

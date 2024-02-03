@@ -92,7 +92,6 @@
                     app:boxCornerRadiusTopEnd="@dimen/dim_20"
                     app:boxCornerRadiusTopStart="@dimen/dim_20"
                     app:boxStrokeErrorColor="@color/red"
-                    app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/black"
                     >
 
@@ -100,7 +99,8 @@
                         android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
                 // End Passward
             </LinearLayout>
@@ -108,15 +108,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/white"
+                android:elevation="10dp"
                 android:text="Forget Password"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/white"
                 android:textColor="@color/skyblue13"
-                android:textStyle="bold"
                 android:textSize="17sp"
-                android:layout_marginTop="5dp"
-                android:elevation="10dp"
-                />
+                android:textStyle="bold"
+                android:visibility="invisible" />
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"

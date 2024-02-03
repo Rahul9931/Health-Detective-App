@@ -50,7 +50,6 @@ class Appointment_Status_Fragment : Fragment() {
                     }
                 }
                 setAdapter(patientArrayList)
-                Toast.makeText(requireContext(), "Process Success", Toast.LENGTH_SHORT).show()
             }
 
             override fun onCancelled(error: DatabaseError) {

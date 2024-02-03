@@ -38,6 +38,7 @@
 
             <ImageView
                 android:id="@+id/imagebackground"
+                android:transitionName="img_doctor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
@@ -111,6 +112,7 @@
 
             <TextView
                 android:id="@+id/noofrating"
+                android:transitionName="txt_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dim_50"
@@ -127,6 +129,7 @@
 
     <TextView
         android:id="@+id/dname"
+        android:transitionName="txt_doctor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dim_30"
@@ -141,6 +144,7 @@
 
     <TextView
         android:id="@+id/specialist_appointment"
+        android:transitionName="txt_specialist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@string/custom_simple_text1"

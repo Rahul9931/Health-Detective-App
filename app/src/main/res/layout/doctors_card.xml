@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dim_270"
+    android:layout_height="@dimen/dim_220"
     app:cardCornerRadius="@dimen/dim_20"
     android:elevation="@dimen/dim_10"
     android:layout_margin="@dimen/dim_5"
@@ -18,6 +18,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/doctorimage"
+            android:transitionName="img_doctor"
             android:layout_width="@dimen/dim_170"
             android:layout_height="@dimen/dim_170"
             android:layout_marginStart="@dimen/dim_20"
@@ -28,6 +29,7 @@
 
         <TextView
             android:id="@+id/doctorname"
+            android:transitionName="txt_doctor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dim_15"
@@ -43,6 +45,7 @@
 
         <TextView
             android:id="@+id/specialist"
+            android:transitionName="txt_specialist"
             android:layout_width="204dp"
             android:layout_height="49dp"
             android:layout_marginTop="@dimen/dim_5"
@@ -56,6 +59,7 @@
 
         <TextView
             android:id="@+id/rate"
+            android:transitionName="txt_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dim_10"

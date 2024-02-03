@@ -125,7 +125,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
                     android:hint="Passward"
-                    app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/black"
                     app:boxCornerRadiusBottomEnd="@dimen/dim_20"
                     app:boxCornerRadiusBottomStart="@dimen/dim_20"

@@ -3,15 +3,19 @@ package com.example.healthdetectiveapp.adapter
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthdetectiveapp.DieasesInformation_Activity
 import com.example.healthdetectiveapp.MainActivity
+import com.example.healthdetectiveapp.R
 import com.example.healthdetectiveapp.databinding.DieasesAccuracyCardBinding
 
 class DieasesAccuracyAdapter(val context:Context,val sortedKey:List<Float>,val sortedValue:List<String>) :
     RecyclerView.Adapter<DieasesAccuracyAdapter.DieasesAccuracyViewHolder>() {
     private lateinit var dieaseslabel:String
+    private var lastPosition = -1
     inner class DieasesAccuracyViewHolder(val binding: DieasesAccuracyCardBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -24,6 +28,7 @@ class DieasesAccuracyAdapter(val context:Context,val sortedKey:List<Float>,val s
     override fun getItemCount() = sortedValue.size
 
     override fun onBindViewHolder(holder: DieasesAccuracyViewHolder, position: Int) {
+        setAnimation(holder.itemView,position)
         val fileName = "dieaseslabels.txt"
         val inputString = context.assets.open(fileName).bufferedReader().use { it.readText() }
         var dieasesLabelList = inputString.split("\n")
@@ -46,5 +51,14 @@ class DieasesAccuracyAdapter(val context:Context,val sortedKey:List<Float>,val s
             appointmentIntent.putExtra("dieases",dieaseslabel)
             context.startActivity(appointmentIntent)
         }
+    }
+
+    private fun setAnimation(view: View, position: Int){
+        if (position>lastPosition){
+            var slidAnim = AnimationUtils.loadAnimation(context, R.anim.slide_in_anim)
+            view.startAnimation(slidAnim)
+            lastPosition = position
+        }
+
     }
 }

@@ -51,4 +51,8 @@
     <color name="skyblue18">#016398</color>
     <color name="orange">#FF9800</color>
     <color name="header_background_color">#8692F7</color>
+    <color name="blue">#8F36F4</color>
+    <color name="blue2">#E736F4</color>
+    <color name="pink">#E91E63</color>
+    <color name="hd_color">#5F6EF3</color>
 </resources>

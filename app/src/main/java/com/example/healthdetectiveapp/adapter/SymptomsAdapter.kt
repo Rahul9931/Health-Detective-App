@@ -24,7 +24,6 @@ class SymptomsAdapter(
     override fun onBindViewHolder(holder: SymptomsViewHolder, position: Int) {
         holder.binding.symptoms.text = symList[position]
         holder.binding.clearSymptoms.setOnClickListener {
-            Toast.makeText(context, "$position", Toast.LENGTH_SHORT).show()
             symList.removeAt(holder.adapterPosition)
             notifyItemRemoved(holder.adapterPosition)
             notifyItemRangeChanged(holder.adapterPosition, itemCount)

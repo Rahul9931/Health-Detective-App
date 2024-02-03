@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    android:layout_marginStart="@dimen/dim_30"
+    android:layout_marginEnd="@dimen/dim_30"
+    tools:context=".fragment.FetchDataBottomSheetFragment">
+
+    <ImageButton
+        android:id="@+id/btndismiss"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="@dimen/dim_20"
+        android:background="@android:color/transparent"
+        android:contentDescription="godown"
+        android:src="@drawable/arrow_down"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_patientsrecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30"
+        android:fontFamily="@string/custom_bold_text1"
+        android:text="Get Records"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_dim_60"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btndismiss"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_marginTop="@dimen/dim_10"
+        android:layout_marginEnd="@dimen/dim_20"
+        app:boxStrokeErrorColor="@color/red"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_patientsrecord">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/moreliteblack" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_marginTop="@dimen/dim_10"
+        android:layout_marginEnd="@dimen/dim_20"
+        app:boxStrokeErrorColor="@color/red"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_readid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Read Id"
+            android:inputType="text"
+            android:textColorHint="@color/moreliteblack" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_getrecords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_marginTop="@dimen/dim_50"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:fontFamily="@string/custom_bold_text1"
+        android:text="Get Records"
+        android:textSize="@dimen/text_dim_45"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

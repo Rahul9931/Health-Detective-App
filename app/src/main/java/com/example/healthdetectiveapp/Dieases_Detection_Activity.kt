@@ -39,6 +39,7 @@ class Dieases_Detection_Activity : AppCompatActivity() {
 
         // Set Symptoms Buttom
         binding.btnSymptoms.setOnClickListener {
+            usersymList.clear()
             val symptoms = autoComplete.text.toString().trim()
             if (symptoms.equals("")){
                 Toast.makeText(this, "Please Select Symptoms", Toast.LENGTH_SHORT).show()
@@ -53,7 +54,6 @@ class Dieases_Detection_Activity : AppCompatActivity() {
         // Set Show Result Button
         binding.btnResult.setOnClickListener {
             if (usersymList.isNotEmpty()){
-                Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
                 // Creating Symptoms List
                 for (k in 0..symList.size-1){
                     for( z in usersymList){
@@ -97,7 +97,6 @@ class Dieases_Detection_Activity : AppCompatActivity() {
 
                 // Releases model resources if no longer used.
                 model.close()
-                usersymList.clear()
                 for (zero in 0..symListInFloat.size-1){
                     symListInFloat[zero] = 0
                 }

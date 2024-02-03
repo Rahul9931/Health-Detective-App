@@ -150,11 +150,10 @@ class DoctorAppointmentFragment : Fragment() {
                     setAdapter(list as ArrayList<doctors>)
                 }
                 Log.d("doctorList","${doctorsArrayList}")
-                Toast.makeText(requireContext(), "Process Success", Toast.LENGTH_SHORT).show()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireContext(), "Process Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Internet Connection Failed", Toast.LENGTH_SHORT).show()
             }
 
         })

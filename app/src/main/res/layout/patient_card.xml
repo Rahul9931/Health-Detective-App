@@ -17,6 +17,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/patientimage"
+            android:transitionName="patient_img"
             android:layout_width="@dimen/dim_170"
             android:layout_height="@dimen/dim_170"
             android:layout_marginStart="@dimen/dim_20"
@@ -29,6 +30,7 @@
 
         <TextView
             android:id="@+id/patientname"
+            android:transitionName="patient_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dim_20"
@@ -44,6 +46,7 @@
 
         <TextView
             android:id="@+id/dieases"
+            android:transitionName="dieases"
             android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dim_5"
@@ -57,6 +60,7 @@
 
         <TextView
             android:id="@+id/date_appstatus"
+            android:transitionName="date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dim_10"
@@ -70,6 +74,7 @@
 
         <TextView
             android:id="@+id/time_appstatus"
+            android:transitionName="time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dim_10"

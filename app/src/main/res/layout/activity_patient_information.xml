@@ -16,6 +16,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/patientImage_patinfo"
+            android:transitionName="patient_img"
             android:layout_width="@dimen/dim_250"
             android:layout_height="@dimen/dim_250"
             android:layout_marginTop="@dimen/dim_50"
@@ -41,6 +42,7 @@
 
         <EditText
             android:id="@+id/patname_edt"
+            android:transitionName="patient_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -116,6 +118,7 @@
 
         <EditText
             android:id="@+id/patdieases_edt"
+            android:transitionName="dieases"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -148,7 +151,7 @@
             android:enabled="false"
             android:fontFamily="@string/custom_bold_text1"
             android:textColor="@color/black"
-            android:textSize="@dimen/dim_45"
+            android:textSize="@dimen/dim_40"
             app:layout_constraintBottom_toBottomOf="@+id/addtxt"
             app:layout_constraintStart_toEndOf="@+id/addtxt"
             app:layout_constraintTop_toTopOf="@+id/addtxt" />
@@ -217,6 +220,7 @@
 
         <EditText
             android:id="@+id/dateedt"
+            android:transitionName="date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -243,6 +247,7 @@
 
         <EditText
             android:id="@+id/timeedt"
+            android:transitionName="time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"

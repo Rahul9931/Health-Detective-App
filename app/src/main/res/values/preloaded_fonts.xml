@@ -2,7 +2,9 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
+        <item>@font/aclonica</item>
         <item>@font/baloo</item>
+        <item>@font/faster_one</item>
         <item>@font/lato</item>
         <item>@font/lato_bold</item>
         <item>@font/montserrat_medium</item>
@@ -11,5 +13,6 @@
         <item>@font/open_sans_bold</item>
         <item>@font/roboto_bold</item>
         <item>@font/roboto_medium</item>
+        <item>@font/sonsie_one</item>
     </array>
 </resources>

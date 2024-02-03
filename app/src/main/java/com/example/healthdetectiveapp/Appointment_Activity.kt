@@ -114,48 +114,62 @@ class Appointment_Activity : AppCompatActivity() {
                         binding.autocompleteAppointment.error = null
                         if (!phoneno.isEmpty()) {
                             binding.phoneno.error = null
-                            if (!email.isEmpty()) {
-                                binding.email.error = null
-                                if (!address.isEmpty()) {
-                                    binding.address.error = null
-                                    if (!selectedDate.isEmpty()) {
-                                        binding.date.error = null
-                                        if (!selectedTime.isEmpty()) {
-                                            binding.time.error = null
-                                            uploadPatientData()
-                                            binding.date.text = "Date"
-                                            binding.time.text = "Time"
-                                            binding.patientname.text?.clear()
-                                            binding.age.text?.clear()
-                                            binding.autocompleteAppointment.text.clear()
-                                            binding.phoneno.text?.clear()
-                                            binding.email.text?.clear()
-                                            binding.address.text?.clear()
-                                            binding.autocompleteAlldieaseseAppointment.text.clear()
-                                            binding.patientImage.setImageResource(r.drawable.account)
-                                        } else {
-                                            binding.time.error = "Please Select Time"
+                            if (phoneno.matches("[1-9][0-9]{9}".toRegex())){
+                                binding.phoneno.error = null
+                                if (!email.isEmpty()) {
+                                    binding.email.error = null
+                                    if (email.matches("^[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex())){
+                                        binding.email.error = null
+                                        if (!address.isEmpty()) {
+                                            binding.address.error = null
+                                            if (!selectedDate.isEmpty()) {
+                                                binding.date.error = null
+                                                if (!selectedTime.isEmpty()) {
+                                                    binding.time.error = null
+                                                    uploadPatientData()
+                                                    binding.date.text = "Date"
+                                                    binding.time.text = "Time"
+                                                    binding.patientname.text?.clear()
+                                                    binding.age.text?.clear()
+                                                    binding.autocompleteAppointment.text.clear()
+                                                    binding.phoneno.text?.clear()
+                                                    binding.email.text?.clear()
+                                                    binding.address.text?.clear()
+                                                    binding.autocompleteAlldieaseseAppointment.text.clear()
+                                                    binding.patientImage.setImageResource(r.drawable.account)
+                                                } else {
+                                                    binding.time.error = "Please Select Time"
+                                                }
+                                            } else {
+                                                binding.date.error = "Please Select Date"
+                                            }
                                         }
-                                    } else {
-                                        binding.date.error = "Please Select Date"
+                                        else {
+                                            binding.address.error = "Please Enter Address"
+                                        }
                                     }
+                                    else{
+                                        binding.email.error = "Please Fill Valid Email"
+                                    }
+
                                 } else {
-                                    binding.address.error = "Please Enter Address"
+                                    binding.email.error = "Please Fill Patient Email"
                                 }
-                            } else {
-                                binding.email.error = "Please Enter Patient Email"
+                            }
+                            else{
+                                binding.phoneno.error = "Please Fill Valid Phone Number"
                             }
                         } else {
-                            binding.phoneno.error = "Please Enter Patient Phone Number"
+                            binding.phoneno.error = "Please Fill Patient Phone Number"
                         }
                     } else {
                         binding.autocompleteAppointment.error = "Please Select Gender"
                     }
                 } else {
-                    binding.age.error = "Please Enter Patient Age"
+                    binding.age.error = "Please Fill Patient Age"
                 }
             } else {
-                binding.patientname.error = "Please Enter Patient Name"
+                binding.patientname.error = "Please Fill Patient Name"
             }
         }
     }
@@ -173,7 +187,7 @@ class Appointment_Activity : AppCompatActivity() {
                     // Assign Model
                     val patientData = PatientModel(newItemsKey,patientName,downloadurl.toString(),age, gender, dieases, phoneno, email, address, date, time)
                     patientRef.child(newItemsKey!!).setValue(patientData).addOnSuccessListener {
-                        Toast.makeText(this, "Your Appointment are Fix", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Your Appointment is Fix", Toast.LENGTH_SHORT).show()
                     }
                         .addOnFailureListener {
                             Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()

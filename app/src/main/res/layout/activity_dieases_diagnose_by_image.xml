@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/txt_warning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dim_20"
@@ -45,7 +45,7 @@
                 android:textSize="@dimen/dim_30"
                 android:fontFamily="@string/custom_simple_text1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_warning" />
 
             <ImageView
                 android:id="@+id/dieasesImage"

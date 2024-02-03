@@ -1,6 +1,7 @@
 package com.example.healthdetectiveapp
 
 import android.app.ProgressDialog
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -28,7 +29,6 @@ class DieasesInformation_Activity : AppCompatActivity() {
         val request = intent.getStringExtra("requestCode")
         webview = binding.webview
         webview.settings.javaScriptEnabled = true
-        webview.webViewClient = WebViewClient()
 
         when(request){
             "dieasesInformation" ->{
@@ -45,11 +45,13 @@ class DieasesInformation_Activity : AppCompatActivity() {
                 val filename = intent.getStringExtra("filename")
                 val filemime = intent.getStringExtra("mimetype")
                 if (filemime!!.startsWith("image")){
+                    binding.doctorSearch.visibility = View.GONE
                     webview.visibility = View.GONE
                     binding.webimg.visibility = View.VISIBLE
                     Glide.with(this).load(Uri.parse(fileurl)).into(binding.webimg)
                 }
                 else{
+                    binding.txtSearch.setText("Opening Document...")
                     binding.webimg.visibility = View.GONE
                     webview.visibility = View.VISIBLE
                     val url = URLEncoder.encode(fileurl,"UTF-8")
@@ -57,6 +59,21 @@ class DieasesInformation_Activity : AppCompatActivity() {
                 }
             }
         }
+        webview.webViewClient = object : WebViewClient(){
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                binding.doctorSearch.visibility = View.VISIBLE
+
+                super.onPageStarted(view, url, favicon)
+            }
+
+            override fun onPageCommitVisible(view: WebView?, url: String?) {
+                binding.doctorSearch.visibility = View.GONE
+                binding.txtSearch.visibility = View.GONE
+                binding.webview.visibility = View.VISIBLE
+                super.onPageCommitVisible(view, url)
+            }
+        }
+
     }
 
     override fun onBackPressed() {

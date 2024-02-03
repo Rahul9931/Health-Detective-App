@@ -32,7 +32,9 @@ class DieasesDiagnoseByImage : AppCompatActivity() {
         setContentView(binding.root)
 
         val cardvalue = intent.getIntExtra("cardKey",0)
+        dieases = intent.getStringExtra("disease")!!
         binding.btnShowResult.isEnabled = false
+        binding.txtWarning.setText("Please choose ${dieases} Images for right result otherwise it gives wrong result")
         binding.btnGallery.setOnClickListener {
             binding.resultContainer.visibility = View.GONE
             pickimage.launch("image/*")
@@ -44,19 +46,16 @@ class DieasesDiagnoseByImage : AppCompatActivity() {
                 1->{
                     status= classifier!!.brainTumar()
                     binding.Result.text = status
-                    dieases = "Brain Tumar"
                     index = 41
                 }
                 2->{
                     status= classifier!!.alzimerDetection()
                     binding.Result.text = status
-                    dieases = "Alzimer"
                     index = 42
                 }
                 3->{
                     status= classifier!!.lungsCancerDetection()
                     binding.Result.text = status
-                    dieases = "Lungs Cancer"
                     index = 43
                 }
             }

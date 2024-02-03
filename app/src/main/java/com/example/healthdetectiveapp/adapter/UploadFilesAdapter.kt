@@ -1,7 +1,9 @@
 package com.example.healthdetectiveapp.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthdetectiveapp.R
 import com.example.healthdetectiveapp.databinding.UploadFilesDialogCardBinding
@@ -10,6 +12,7 @@ class UploadFilesAdapter(
     val files:List<String>,
     val status:List<String>
 ): RecyclerView.Adapter<UploadFilesAdapter.UploadFileViewHolder>() {
+    private var lastPosition = -1
     inner class UploadFileViewHolder(val binding: UploadFilesDialogCardBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -24,6 +27,7 @@ class UploadFilesAdapter(
     }
 
     override fun onBindViewHolder(holder: UploadFileViewHolder, position: Int) {
+        setAnimation(holder.itemView,position)
         // Set name
         var filename = files.get(position)
         if (filename.length>15){
@@ -38,5 +42,14 @@ class UploadFilesAdapter(
         else{
             holder.binding.status.setImageResource(R.drawable.checked)
         }
+    }
+
+    private fun setAnimation(view: View, position: Int){
+        if (position>lastPosition){
+            var slidAnim = AnimationUtils.loadAnimation(view.context, R.anim.slide_in_anim)
+            view.startAnimation(slidAnim)
+            lastPosition = position
+        }
+
     }
 }

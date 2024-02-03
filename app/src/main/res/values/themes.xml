@@ -2,7 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HealthDetectiveApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/Softblue_skyblue3</item>
+        <item name="colorPrimaryDark">@color/Softblue_skyblue3</item>
+        <item name="colorAccent">@color/Softblue_skyblue6</item>
+
+        <item name="colorPrimaryContainer">@color/skyblue4</item>
+        <item name="colorSecondaryContainer">@color/skyblue4</item>
+
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
     <style name="Theme.HealthDetectiveApp" parent="Base.Theme.HealthDetectiveApp" />

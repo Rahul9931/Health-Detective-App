@@ -33,13 +33,20 @@ class Login_Activity : AppCompatActivity() {
 
             if (!email.isEmpty()){
                 binding.emailLogin.error = null
-                if (!passward.isEmpty()){
-                    binding.password.error = null
-                    LoginAccount(email,passward)
+                if (email.matches("^[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex())){
+                    binding.emailLogin.error = null
+                    if (!passward.isEmpty()){
+                        binding.password.error = null
+                        LoginAccount(email,passward)
+                    }
+                    else{
+                        binding.password.error ="Please Fill Passward"
+                    }
                 }
                 else{
-                    binding.password.error ="Please Fill Passward"
+                    binding.emailLogin.error = "Please Fill Valid Email"
                 }
+
             }
             else{
                 binding.emailLogin.error ="Please Fill Email"

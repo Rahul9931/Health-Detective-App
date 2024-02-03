@@ -24,8 +24,6 @@
         android:layout_width="@dimen/dim_180"
         android:layout_height="@dimen/dim_180"
         android:layout_marginStart="@dimen/dim_50"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/account" />
@@ -34,12 +32,11 @@
         android:id="@+id/txt_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_30"
         android:layout_marginStart="@dimen/dim_30"
-        android:text="Hi Rahul Saini"
+        android:layout_marginTop="@dimen/dim_30"
         android:fontFamily="@string/custom_bold_text1"
-        android:textSize="@dimen/text_dim_50"
         android:textColor="@color/white"
+        android:textSize="@dimen/text_dim_50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

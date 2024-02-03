@@ -7,11 +7,13 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dim_3"
     android:elevation="@dimen/dim_10"
+    app:cardCornerRadius="@dimen/dim_20"
+
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="@dimen/dim_10"
         >
 
@@ -23,13 +25,14 @@
             android:padding="@dimen/dim_5"
             android:text="Chronic cholestasis"
             android:textSize="@dimen/text_dim_35"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/btn_appointment"
-            android:layout_width="@dimen/dim_40"
-            android:layout_height="@dimen/dim_40"
+            android:layout_width="@dimen/dim_50"
+            android:layout_height="@dimen/dim_50"
             android:layout_marginEnd="@dimen/dim_10"
             android:background="@android:color/transparent"
             android:src="@drawable/appointment"
@@ -39,8 +42,8 @@
 
         <ImageView
             android:id="@+id/btn_info"
-            android:layout_width="@dimen/dim_40"
-            android:layout_height="@dimen/dim_40"
+            android:layout_width="@dimen/dim_50"
+            android:layout_height="@dimen/dim_50"
             android:layout_marginEnd="@dimen/dim_30"
             app:layout_constraintBottom_toBottomOf="@+id/btn_appointment"
             app:layout_constraintEnd_toStartOf="@+id/btn_appointment"

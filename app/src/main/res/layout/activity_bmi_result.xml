@@ -9,13 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/msg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dim_40"
+            android:layout_marginTop="@dimen/dim_50"
             android:fontFamily="@string/custom_simple_text1"
             android:text="You Have Normal Body \nWeight"
             android:textAlignment="center"
@@ -31,10 +31,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dim_20"
-            android:layout_marginTop="@dimen/dim_30"
+            android:layout_marginTop="@dimen/dim_40"
             android:layout_marginEnd="@dimen/dim_20"
-            android:paddingBottom="@dimen/dim_5"
             android:background="@drawable/background_shap1"
+            android:paddingBottom="@dimen/dim_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/msg">
@@ -172,7 +172,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_100"
+            android:layout_height="@dimen/dim_120"
             android:layout_margin="@dimen/dim_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -182,8 +182,8 @@
                 android:id="@+id/cardView"
                 android:layout_width="@dimen/dim_90"
                 android:layout_height="@dimen/dim_90"
-                app:cardCornerRadius="@dimen/dim_45"
                 android:backgroundTint="@color/skyblue9"
+                app:cardCornerRadius="@dimen/dim_45"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -191,9 +191,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardcontainer"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dim_100"
                 android:layout_marginStart="@dimen/dim_10"
-                android:padding="@dimen/dim_20"
                 app:cardCornerRadius="@dimen/dim_50"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -242,7 +241,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_100"
+            android:layout_height="@dimen/dim_120"
             android:layout_margin="@dimen/dim_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -252,8 +251,8 @@
                 android:id="@+id/cardViewgreen"
                 android:layout_width="@dimen/dim_90"
                 android:layout_height="@dimen/dim_90"
-                app:cardCornerRadius="@dimen/dim_45"
                 android:backgroundTint="@color/green"
+                app:cardCornerRadius="@dimen/dim_45"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -261,7 +260,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardcontainergreen"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dim_100"
                 android:layout_marginStart="@dimen/dim_10"
                 android:padding="@dimen/dim_20"
                 app:cardCornerRadius="@dimen/dim_50"
@@ -312,7 +311,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_100"
+            android:layout_height="@dimen/dim_120"
             android:layout_margin="@dimen/dim_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -322,8 +321,8 @@
                 android:id="@+id/cardVieworange"
                 android:layout_width="@dimen/dim_90"
                 android:layout_height="@dimen/dim_90"
-                app:cardCornerRadius="@dimen/dim_45"
                 android:backgroundTint="@color/orange"
+                app:cardCornerRadius="@dimen/dim_45"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -331,7 +330,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardcontainerorange"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dim_100"
                 android:layout_marginStart="@dimen/dim_10"
                 android:padding="@dimen/dim_20"
                 app:cardCornerRadius="@dimen/dim_50"
@@ -382,7 +381,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout6"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_100"
+            android:layout_height="@dimen/dim_120"
             android:layout_margin="@dimen/dim_30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -392,8 +391,8 @@
                 android:id="@+id/cardViewred"
                 android:layout_width="@dimen/dim_90"
                 android:layout_height="@dimen/dim_90"
-                app:cardCornerRadius="@dimen/dim_45"
                 android:backgroundTint="@color/red"
+                app:cardCornerRadius="@dimen/dim_45"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -401,7 +400,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardcontainerred"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/dim_100"
                 android:layout_marginStart="@dimen/dim_10"
                 android:padding="@dimen/dim_20"
                 app:cardCornerRadius="@dimen/dim_50"

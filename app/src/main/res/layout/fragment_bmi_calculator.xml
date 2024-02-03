@@ -11,235 +11,241 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         >
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dim_20"
-            android:fontFamily="@string/custom_simple_text1"
-            android:text="Check Your Body Mass Index \n(BMI)"
-            android:textAlignment="center"
-            android:textColor="@color/Softblue_skyblue1"
-            android:textSize="@dimen/dim_50"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout7"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/calculatebmi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout8"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_500"
-                android:layout_marginStart="@dimen/dim_30"
-                android:layout_marginTop="@dimen/dim_30"
-                android:layout_marginEnd="@dimen/dim_30"
-                android:background="@drawable/background_shape2"
-                android:elevation="@dimen/dim_15"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/inch_container"
-                    android:layout_width="@dimen/dim_270"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/dim_20"
-                    android:layout_marginStart="@dimen/dim_10"
-                    android:background="@drawable/background_shap1"
-                    android:padding="@dimen/dim_5"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="@+id/feet_container"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/feet_container"
-                    app:layout_constraintTop_toTopOf="@+id/feet_container">
-
-                    <NumberPicker
-                        android:id="@+id/inchpicker"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/inch_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dim_5"
-                        android:text="inc"
-                        android:textSize="@dimen/dim_45"
-                        android:textStyle="bold"
-
-                        app:layout_constraintBottom_toBottomOf="@+id/inchpicker"
-                        app:layout_constraintStart_toEndOf="@+id/inchpicker"
-                        app:layout_constraintTop_toTopOf="@+id/inchpicker" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dim_20"
-                    android:fontFamily="@string/custom_simple_text1"
-                    android:text="Height"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dim_50"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/feet_container"
-                    android:layout_width="@dimen/dim_270"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dim_20"
-                    android:layout_marginTop="@dimen/dim_30"
-                    android:layout_marginEnd="@dimen/dim_10"
-                    android:background="@drawable/background_shap1"
-                    android:padding="@dimen/dim_5"
-                    android:visibility="visible"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17">
-
-                    <NumberPicker
-                        android:id="@+id/feetpicker"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/feet_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dim_5"
-                        android:text="ft"
-                        android:textSize="@dimen/dim_45"
-                        android:textStyle="bold"
-
-                        app:layout_constraintBottom_toBottomOf="@+id/feetpicker"
-                        app:layout_constraintStart_toEndOf="@+id/feetpicker"
-                        app:layout_constraintTop_toTopOf="@+id/feetpicker" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dim_500"
-                android:layout_margin="@dimen/dim_30"
-                android:background="@drawable/background_shape2"
-                android:elevation="@dimen/dim_15"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dim_20"
-                    android:fontFamily="@string/custom_simple_text1"
-                    android:text="Weight"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dim_50"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="@dimen/dim_300"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_shap1"
-                    android:padding="@dimen/dim_5"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19">
-
-                    <NumberPicker
-                        android:id="@+id/weightpicker2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/kg2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dim_5"
-                        android:text="kg"
-                        android:textSize="@dimen/dim_40"
-                        android:textStyle="bold"
-
-                        app:layout_constraintBottom_toBottomOf="@+id/weightpicker2"
-                        app:layout_constraintStart_toEndOf="@+id/weightpicker2"
-                        app:layout_constraintTop_toTopOf="@+id/weightpicker2" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/calculatebmi"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dim_50"
-            android:layout_marginStart="@dimen/dim_20"
-            android:layout_marginEnd="@dimen/dim_20"
-            android:backgroundTint="@color/Softblue_skyblue1"
-            android:fontFamily="@string/custom_bold_text2"
-            android:text="Calculate BMI"
-            android:textSize="@dimen/text_dim_45"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/whatbmi"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@string/custom_simple_text1"
-            android:text="What is BMI ?"
-            android:textColor="@color/Softblue_skyblue1"
-            android:textSize="@dimen/dim_35"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calculatebmi"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dim_20"
+                    android:fontFamily="@string/custom_simple_text1"
+                    android:text="Check Your Body Mass Index \n(BMI)"
+                    android:textAlignment="center"
+                    android:textColor="@color/Softblue_skyblue1"
+                    android:textSize="@dimen/dim_50"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/calculatebmi"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout8"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_500"
+                        android:layout_marginStart="@dimen/dim_30"
+                        android:layout_marginTop="@dimen/dim_30"
+                        android:layout_marginEnd="@dimen/dim_30"
+                        android:background="@drawable/background_shape2"
+                        android:elevation="@dimen/dim_15"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/inch_container"
+                            android:layout_width="@dimen/dim_270"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dim_10"
+                            android:layout_marginEnd="@dimen/dim_20"
+                            android:background="@drawable/background_shap1"
+                            android:padding="@dimen/dim_5"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="@+id/feet_container"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/feet_container"
+                            app:layout_constraintTop_toTopOf="@+id/feet_container">
+
+                            <NumberPicker
+                                android:id="@+id/inchpicker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/inch_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dim_5"
+                                android:text="inc"
+                                android:textSize="@dimen/dim_45"
+                                android:textStyle="bold"
+
+                                app:layout_constraintBottom_toBottomOf="@+id/inchpicker"
+                                app:layout_constraintStart_toEndOf="@+id/inchpicker"
+                                app:layout_constraintTop_toTopOf="@+id/inchpicker" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dim_20"
+                            android:fontFamily="@string/custom_simple_text1"
+                            android:text="Height"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dim_50"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/feet_container"
+                            android:layout_width="@dimen/dim_270"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dim_20"
+                            android:layout_marginTop="@dimen/dim_30"
+                            android:layout_marginEnd="@dimen/dim_10"
+                            android:background="@drawable/background_shap1"
+                            android:padding="@dimen/dim_5"
+                            android:visibility="visible"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView17">
+
+                            <NumberPicker
+                                android:id="@+id/feetpicker"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/feet_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dim_5"
+                                android:text="ft"
+                                android:textSize="@dimen/dim_45"
+                                android:textStyle="bold"
+
+                                app:layout_constraintBottom_toBottomOf="@+id/feetpicker"
+                                app:layout_constraintStart_toEndOf="@+id/feetpicker"
+                                app:layout_constraintTop_toTopOf="@+id/feetpicker" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_500"
+                        android:layout_margin="@dimen/dim_30"
+                        android:background="@drawable/background_shape2"
+                        android:elevation="@dimen/dim_15"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dim_20"
+                            android:fontFamily="@string/custom_simple_text1"
+                            android:text="Weight"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dim_50"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/dim_300"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_shap1"
+                            android:padding="@dimen/dim_5"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView19">
+
+                            <NumberPicker
+                                android:id="@+id/weightpicker2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/kg2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dim_5"
+                                android:text="kg"
+                                android:textSize="@dimen/dim_40"
+                                android:textStyle="bold"
+
+                                app:layout_constraintBottom_toBottomOf="@+id/weightpicker2"
+                                app:layout_constraintStart_toEndOf="@+id/weightpicker2"
+                                app:layout_constraintTop_toTopOf="@+id/weightpicker2" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/calculatebmi"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim_20"
+                    android:layout_marginTop="@dimen/dim_50"
+                    android:layout_marginEnd="@dimen/dim_20"
+                    android:backgroundTint="@color/Softblue_skyblue1"
+                    android:fontFamily="@string/custom_bold_text2"
+                    android:text="Calculate BMI"
+                    android:textSize="@dimen/text_dim_45"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/whatbmi"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/custom_simple_text1"
+                    android:text="What is BMI ?"
+                    android:textColor="@color/Softblue_skyblue1"
+                    android:textSize="@dimen/dim_35"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/calculatebmi" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

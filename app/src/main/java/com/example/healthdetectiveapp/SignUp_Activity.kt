@@ -8,6 +8,9 @@ import com.example.healthdetectiveapp.databinding.ActivitySignUpBinding
 import com.example.healthdetectiveapp.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import java.lang.StringBuilder
+import java.security.SecureRandom
+import java.util.regex.Pattern
 
 class SignUp_Activity : AppCompatActivity() {
     private val binding:ActivitySignUpBinding by lazy {
@@ -38,22 +41,34 @@ class SignUp_Activity : AppCompatActivity() {
                 binding.username.error = null
                 if (!phone.isEmpty()){
                     binding.phone.error = null
-                    if (!email.isEmpty()){
+                    if (phone.matches("[1-9][0-9]{9}".toRegex())){
+                        binding.phone.error = null
+                        if (!email.isEmpty()){
                         binding.email.error = null
-                        if (!passward.isEmpty()){
+                        if (email.matches("^[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex())){
+                            binding.email.error = null
+                            if (!passward.isEmpty()){
                             binding.password.error = null
                             createAccount(email,passward)
                         }
                         else{
                             binding.password.error ="Please Fill Passward"
                         }
+                        }
+                        else{
+                            binding.email.error ="Please Fill Valid Email"
+                        }
                     }
                     else{
                         binding.email.error ="Please Fill Email"
                     }
+                    }
+                    else{
+                        binding.phone.error = "Please Fill Valid Phone Number"
+                    }
                 }
                 else{
-                    binding.phone.error ="Please Fill Phone"
+                    binding.phone.error ="Please Fill Phone Number"
                 }
             }
             else{
@@ -67,9 +82,6 @@ class SignUp_Activity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful){
                 saveUserData()
-                Toast.makeText(this, "Account Created Successful", Toast.LENGTH_SHORT).show()
-                val gotoMain = Intent(this,MainActivity::class.java)
-                startActivity(gotoMain)
             }
             else{
                 Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
@@ -79,11 +91,27 @@ class SignUp_Activity : AppCompatActivity() {
 
     private fun saveUserData() {
         val userId = auth.currentUser!!.uid
+        val readId = generatePassword(15)
         if (userId!=null){
             val userRef = database.getReference("UsersProfile").child(userId)
-            val userData = UserModel(name = username, phone = phone, email = email, passward = passward, readid = userId)
-            userRef.setValue(userData)
+            val userData = UserModel(key = userId, name = username, phone = phone, email = email, passward = passward, readid = readId)
+            userRef.setValue(userData).addOnSuccessListener {
+                Toast.makeText(this, "Account Created Successful", Toast.LENGTH_SHORT).show()
+                val gotoMain = Intent(this,MainActivity::class.java)
+                startActivity(gotoMain)
+            }
 
         }
+    }
+
+    fun generatePassword(length:Int):String{
+        val charSet = ('a'..'z')+('A'..'Z')+(0..9)+ listOf('!','@','#','$','%','^','&','*','?','+','-','/')
+        val secureRandom = SecureRandom()
+        val password = StringBuilder()
+        repeat(length,{
+            val charIndex = secureRandom.nextInt(charSet.size)
+            password.append(charSet[charIndex])
+        })
+        return password.toString()
     }
 }

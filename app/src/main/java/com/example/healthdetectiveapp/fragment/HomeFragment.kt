@@ -2,6 +2,7 @@ package com.example.healthdetectiveapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,16 +39,19 @@ class HomeFragment : Fragment() {
         binding.brainTumarCard.setOnClickListener {
             val brainIntent = Intent(requireContext(),DieasesDiagnoseByImage::class.java)
             brainIntent.putExtra("cardKey",1)
+            brainIntent.putExtra("disease","Brain Tumar")
             startActivity(brainIntent)
         }
         binding.AlzimerCard.setOnClickListener {
             val alzimerIntent = Intent(requireContext(),DieasesDiagnoseByImage::class.java)
             alzimerIntent.putExtra("cardKey",2)
+            alzimerIntent.putExtra("disease","Alzimer")
             startActivity(alzimerIntent)
         }
         binding.LungsCancerCard.setOnClickListener {
             val lungsCancerIntent = Intent(requireContext(),DieasesDiagnoseByImage::class.java)
             lungsCancerIntent.putExtra("cardKey",3)
+            lungsCancerIntent.putExtra("disease","Lungs Cancer")
             startActivity(lungsCancerIntent)
         }
         return binding.root
@@ -74,7 +78,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onItemSelected(position: Int) {
-
+                Log.d("SliderId","${position}")
             }
         })
     }

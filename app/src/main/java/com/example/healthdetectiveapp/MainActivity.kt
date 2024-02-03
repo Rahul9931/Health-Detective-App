@@ -49,19 +49,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         //binding.drawer.setScrimColor(getColor(R.color.skyblue9))
+        // Set Active Indicator color
+        binding.navigationView.setCheckedItem(R.id.home)
+        // Get Header View for accessing Items
         val headerView = binding.navigationView.getHeaderView(0)
         profile = headerView.findViewById<CircleImageView>(R.id.profilepalceholder)
         welcomeMsg = headerView.findViewById(R.id.txt_welcome)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
-        val tv = TypedValue()
+        // Set marginTop of Drawer Navigation, Statusbar + Actionbar
+        /*val tv = TypedValue()
         if (this.theme.resolveAttribute(com.google.android.material.R.attr.actionBarSize, tv, true)) {
             val actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, resources.displayMetrics)
             val marginHeight = getStatusBarHeight() + actionBarHeight
             val param = binding.navigationView.layoutParams as ViewGroup.MarginLayoutParams
             param.setMargins(0,marginHeight,0,0)
             binding.navigationView.layoutParams = param
-        }
+        }*/
+
+        // Set marginTop of Drawer Navigation, Statusbar
+        val marginHeight = getStatusBarHeight()
+        val param = binding.navigationView.layoutParams as ViewGroup.MarginLayoutParams
+        param.setMargins(0,marginHeight,0,0)
+        binding.navigationView.layoutParams = param
 
         // Fetch User Profile Data
         fetchUserProfileData()
@@ -75,7 +85,9 @@ class MainActivity : AppCompatActivity() {
             }
             else ->{loadFragment(HomeFragment(),true)}
         }
-        setSupportActionBar(toolbar) // set custom toolbar
+
+        // Set Custom toolbar
+        setSupportActionBar(toolbar)
         // Ham Burger toggle button on toolbar
         val toggle = ActionBarDrawerToggle(this,binding.drawer,toolbar,R.string.openDrawer,R.string.closeDrawer)
         binding.drawer.addDrawerListener(toggle)
@@ -87,6 +99,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigationView.setNavigationItemSelectedListener{
             it.isChecked = true
+            Log.d("itemId1","${it.itemId}")
             when(it.itemId){
                 R.id.home ->{
                     loadFragment(HomeFragment(),true)
@@ -134,11 +147,14 @@ class MainActivity : AppCompatActivity() {
                     if (user!=null){
                         // Set Data On Header
                         welcomeMsg.setText("Hi ${user.name}")
-                        Glide.with(this@MainActivity)
-                            .load(Uri.parse(user.userimage))
-                            .placeholder(R.drawable.account)
-                            .error(R.drawable.account)
-                            .into(profile)
+                        if (user.userimage!=null){
+                            Glide.with(this@MainActivity)
+                                .load(Uri.parse(user.userimage))
+                                .into(profile)
+                        }
+                        else{
+                            profile.setImageResource(R.drawable.account)
+                        }
                     }
                 }
             }
@@ -157,9 +173,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("dieasesInMainActivity", "$dieasesLabel")
         bundle.putString("dieases",dieasesLabel)
         fragment.arguments = bundle
-        /*if (){
-            Toast.makeText(this, "equal", Toast.LENGTH_SHORT).show()
-        }*/
         if (flag==true){
             tr.add(R.id.container,fragment)
             fm.popBackStack("root_fragment",FragmentManager.POP_BACK_STACK_INCLUSIVE)
@@ -178,13 +191,22 @@ class MainActivity : AppCompatActivity() {
         if(binding.drawer.isDrawerOpen(GravityCompat.START)){
             binding.drawer.closeDrawer(GravityCompat.START)
         }
-        else if (fragment is HomeFragment){
+        else if (fragment is HomeFragment) {
             Handler(Looper.getMainLooper()).postDelayed({
                 finish()
-            },1000)
+            }, 500)
         }
         else{
             super.onBackPressed()
+            var checkFragment = supportFragmentManager.findFragmentById(R.id.container)
+            when(checkFragment){
+                is HomeFragment->{binding.navigationView.setCheckedItem(R.id.home)}
+                is DieasesInformationFragment->{binding.navigationView.setCheckedItem(R.id.Dieasesinfo)}
+                is DoctorAppointmentFragment->{binding.navigationView.setCheckedItem(R.id.appointment)}
+                is Appointment_Status_Fragment->{binding.navigationView.setCheckedItem(R.id.appointstatus)}
+                is BMICalculatorFragment->{binding.navigationView.setCheckedItem(R.id.bmi)}
+                is UploadDataFragment->{binding.navigationView.setCheckedItem(R.id.savepatientsdata)}
+            }
         }
     }
 

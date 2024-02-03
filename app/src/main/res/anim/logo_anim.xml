@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/bounce_interpolator"
+    >
+    <translate android:fromYDelta="-100%"
+        android:toYDelta="0"
+        android:duration="2000"
+        />
+    <translate
+        android:fromYDelta="0"
+        android:toYDelta="30"
+        android:repeatMode="reverse"
+        android:duration="500"
+        android:repeatCount="infinite"/>
+
+    <!--<scale
+        android:fromXScale="0"
+        android:toXScale="100"
+        android:fromYScale="0"
+        android:toYScale="100"
+        android:duration="3000"
+        />-->
+</set>

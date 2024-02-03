@@ -21,6 +21,9 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import android.content.ContentResolver
 import android.provider.MediaStore
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import com.example.healthdetectiveapp.adapter.PatientsRecordsAdapter
 import com.example.healthdetectiveapp.model.FileInformationModel
@@ -44,6 +47,7 @@ class UploadDataFragment : Fragment() {
     private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         arguments?.let {
 
         }
@@ -55,7 +59,6 @@ class UploadDataFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentUploadDataBinding.inflate(inflater, container, false)
-
         // Fetch Patients Records from Firebase
         fetchPatientsRecords()
         // Shrink Floating Button
@@ -66,8 +69,23 @@ class UploadDataFragment : Fragment() {
             val patientsRecordBS = uploadRecordFragment()
             patientsRecordBS.show(parentFragmentManager,"RecordDialog")
         }
-
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.option_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.fetch_data -> {
+                val fetchDataBottomSheetFragment = FetchDataBottomSheetFragment()
+                fetchDataBottomSheetFragment.setRecyclerView(binding.rvPatientsrecord)
+                fetchDataBottomSheetFragment.show(parentFragmentManager,"fetchdata")
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun fetchPatientsRecords() {
@@ -104,5 +122,9 @@ class UploadDataFragment : Fragment() {
         binding.rvPatientsrecord.layoutManager = LinearLayoutManager(requireContext())
         val patientsRecordAdapter = PatientsRecordsAdapter(requireContext(),dateFilesList)
         binding.rvPatientsrecord.adapter = patientsRecordAdapter
+    }
+
+    private fun customStatus(s1:String){
+        Toast.makeText(requireContext(), "${s1}", Toast.LENGTH_SHORT).show()
     }
 }

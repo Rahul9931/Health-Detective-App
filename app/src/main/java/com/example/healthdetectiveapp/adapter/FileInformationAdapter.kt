@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.healthdetectiveapp.DieasesInformation_Activity
@@ -14,6 +16,7 @@ import com.example.healthdetectiveapp.model.FileInformationModel
 
 class FileInformationAdapter(private val context: Context,private var fileinfoList:List<FileInformationModel>):
     RecyclerView.Adapter<FileInformationAdapter.FileInformationViewHolder>() {
+    private var lastPosition = -1
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,6 +30,7 @@ class FileInformationAdapter(private val context: Context,private var fileinfoLi
         holder: FileInformationAdapter.FileInformationViewHolder,
         position: Int
     ) {
+        setAnimation(holder.itemView,position)
         var extensionMap = hashMapOf<String,Int>(
             "pdf" to R.drawable.pdf,
             "docx" to R.drawable.docx,
@@ -72,6 +76,15 @@ class FileInformationAdapter(private val context: Context,private var fileinfoLi
     override fun getItemCount() = fileinfoList.size
 
     inner class FileInformationViewHolder(val binding:FilesCardBinding):RecyclerView.ViewHolder(binding.root) {
+
+    }
+
+    private fun setAnimation(view: View, position: Int){
+        if (position>lastPosition){
+            var slidAnim = AnimationUtils.loadAnimation(context, R.anim.slide_in_anim)
+            view.startAnimation(slidAnim)
+            lastPosition = position
+        }
 
     }
 }
