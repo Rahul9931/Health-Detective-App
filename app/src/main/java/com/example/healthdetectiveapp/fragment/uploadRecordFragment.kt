@@ -30,6 +30,7 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentUploadRecordBinding
     private lateinit var files: ArrayList<String>
     private lateinit var status: ArrayList<String>
+    private lateinit var fileSize:ArrayList<String>
     private lateinit var uploadFileAdapter: UploadFilesAdapter
     private val PICK_FILE_REQUEST = 101
     private lateinit var imageUri: Uri
@@ -53,14 +54,16 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
         binding = FragmentUploadRecordBinding.inflate(inflater, container, false)
         files = arrayListOf()
         status = arrayListOf()
+        fileSize = arrayListOf()
         binding.rvRecord.layoutManager = LinearLayoutManager(requireContext())
-        uploadFileAdapter = UploadFilesAdapter(files, status)
+        uploadFileAdapter = UploadFilesAdapter(files, status,fileSize)
         binding.rvRecord.adapter = uploadFileAdapter
 
         // Pick File From Local Storage
         binding.btnselectfiles.setOnClickListener {
             files.clear()
             status.clear()
+            fileSize.clear()
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "*/*"
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
@@ -114,6 +117,7 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
 
                         files.add(filename!!)
                         status.add("loading")
+                        fileSize.add(filesize)
                         uploadFileAdapter.notifyDataSetChanged()
                         val index = i
                         val fileRef = storageReference.child("patientsRecord/$filename")
@@ -143,7 +147,6 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
                     }
                 }
             } else if (data?.data != null) {
-                Toast.makeText(requireContext(), "data", Toast.LENGTH_SHORT).show()
                 imageUri = data.data!!
                 val mimeType = contentResolver.getType(imageUri)
                 Log.d("test_mimetype", "${mimeType}")
@@ -176,6 +179,7 @@ class uploadRecordFragment : BottomSheetDialogFragment() {
                     Log.d("test_time","$timeFormat")
                     files.add(filename!!)
                     status.add("loading")
+                    fileSize.add(filesize)
                     uploadFileAdapter.notifyDataSetChanged()
                     val fileRef = storageReference.child("patientsRecord/$filename")
                     fileRef.putFile(imageUri)

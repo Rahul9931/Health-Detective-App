@@ -2,6 +2,7 @@ package com.example.healthdetectiveapp.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,21 +30,23 @@ class DieasesAccuracyAdapter(val context:Context,val sortedKey:List<Float>,val s
 
     override fun onBindViewHolder(holder: DieasesAccuracyViewHolder, position: Int) {
         setAnimation(holder.itemView,position)
-        val fileName = "dieaseslabels.txt"
+        val fileName = "disease_HE"
         val inputString = context.assets.open(fileName).bufferedReader().use { it.readText() }
         var dieasesLabelList = inputString.split("\n")
         holder.binding.dieaseslabel.text = sortedValue[position]
         holder.binding.dieasesaccuracy.setText("${sortedKey[position]}%")
+
         // Set Button Dieases Information
          holder.binding.btnInfo.setOnClickListener {
              dieaseslabel = holder.binding.dieaseslabel.text.toString()
+             Log.d("check_diseaselable","${dieaseslabel}")
              val index = dieasesLabelList.indexOf(dieaseslabel)
              val dieasesInfoIntent = Intent(context,DieasesInformation_Activity::class.java)
              dieasesInfoIntent.putExtra("urlIndex",index)
              dieasesInfoIntent.putExtra("requestCode","dieasesInformation")
              context.startActivity(dieasesInfoIntent)
          }
-
+        // Doctor Appointment Button
         holder.binding.btnAppointment.setOnClickListener {
             dieaseslabel = holder.binding.dieaseslabel.text.toString()
             val appointmentIntent = Intent(context, MainActivity::class.java)

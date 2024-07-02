@@ -23,6 +23,7 @@ import com.example.healthdetectiveapp.fragment.BMICalculatorFragment
 import com.example.healthdetectiveapp.fragment.DieasesInformationFragment
 import com.example.healthdetectiveapp.fragment.DoctorAppointmentFragment
 import com.example.healthdetectiveapp.fragment.Appointment_Status_Fragment
+import com.example.healthdetectiveapp.fragment.HealthNews
 import com.example.healthdetectiveapp.fragment.HomeFragment
 import com.example.healthdetectiveapp.fragment.ProfileFragment
 import com.example.healthdetectiveapp.fragment.UploadDataFragment
@@ -36,15 +37,15 @@ import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : AppCompatActivity() {
-    private val binding:ActivityMainBinding by lazy {
+    private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    private var request:String?=null
-    private var dieasesLabel: String?=null
-    private val database= FirebaseDatabase.getInstance()
-    private val auth= FirebaseAuth.getInstance()
-    private lateinit var profile:CircleImageView
-    private lateinit var welcomeMsg:TextView
+    private var request: String? = null
+    private var dieasesLabel: String? = null
+    private val database = FirebaseDatabase.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private lateinit var profile: CircleImageView
+    private lateinit var welcomeMsg: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         // Set marginTop of Drawer Navigation, Statusbar
         val marginHeight = getStatusBarHeight()
         val param = binding.navigationView.layoutParams as ViewGroup.MarginLayoutParams
-        param.setMargins(0,marginHeight,0,0)
+        param.setMargins(0, marginHeight, 0, 0)
         binding.navigationView.layoutParams = param
 
         // Fetch User Profile Data
@@ -78,18 +79,28 @@ class MainActivity : AppCompatActivity() {
         // Load Fragment After Request
         request = intent.getStringExtra("OpenScreen")
         dieasesLabel = intent.getStringExtra("dieases")
-        Log.d("Main_dieasesLabel","$dieasesLabel")
-        when(request){
-            "doctorAppointment" ->{
-                loadFragment(DoctorAppointmentFragment(),false)
+        Log.d("Main_dieasesLabel", "$dieasesLabel")
+        when (request) {
+            "doctorAppointment" -> {
+                binding.navigationView.setCheckedItem(R.id.appointment)
+                loadFragment(DoctorAppointmentFragment(), false)
             }
-            else ->{loadFragment(HomeFragment(),true)}
+
+            else -> {
+                loadFragment(HomeFragment(), true)
+            }
         }
 
         // Set Custom toolbar
         setSupportActionBar(toolbar)
         // Ham Burger toggle button on toolbar
-        val toggle = ActionBarDrawerToggle(this,binding.drawer,toolbar,R.string.openDrawer,R.string.closeDrawer)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawer,
+            toolbar,
+            R.string.openDrawer,
+            R.string.closeDrawer
+        )
         binding.drawer.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -97,32 +108,42 @@ class MainActivity : AppCompatActivity() {
             loadFragment(HomeFragment())
         }*/
 
-        binding.navigationView.setNavigationItemSelectedListener{
+        binding.navigationView.setNavigationItemSelectedListener {
             it.isChecked = true
-            Log.d("itemId1","${it.itemId}")
-            when(it.itemId){
-                R.id.home ->{
-                    loadFragment(HomeFragment(),true)
+            Log.d("itemId1", "${it.itemId}")
+            when (it.itemId) {
+                R.id.home -> {
+                    loadFragment(HomeFragment(), true)
                     true
                 }
-                R.id.Dieasesinfo ->{
-                    loadFragment(DieasesInformationFragment(),false)
+
+                R.id.Dieasesinfo -> {
+                    loadFragment(DieasesInformationFragment(), false)
                     true
                 }
-                R.id.appointment ->{
-                    loadFragment(DoctorAppointmentFragment(),false)
+
+                R.id.appointment -> {
+                    loadFragment(DoctorAppointmentFragment(), false)
                     true
                 }
-                R.id.bmi ->{
-                    loadFragment(BMICalculatorFragment(),false)
+
+                R.id.bmi -> {
+                    loadFragment(BMICalculatorFragment(), false)
                     true
                 }
-                R.id.appointstatus ->{
-                    loadFragment(Appointment_Status_Fragment(),false)
+
+                R.id.appointstatus -> {
+                    loadFragment(Appointment_Status_Fragment(), false)
                     true
                 }
-                R.id.savepatientsdata ->{
-                    loadFragment(UploadDataFragment(),false)
+
+                R.id.savepatientsdata -> {
+                    loadFragment(UploadDataFragment(), false)
+                    true
+                }
+
+                R.id.health_news -> {
+                    loadFragment(HealthNews(), false)
                     true
                 }
 
@@ -131,7 +152,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         profile.setOnClickListener {
-            loadFragment(ProfileFragment(),false)
+            loadFragment(ProfileFragment(), false)
             binding.drawer.closeDrawer(GravityCompat.START)
         }
     }
@@ -139,20 +160,19 @@ class MainActivity : AppCompatActivity() {
     private fun fetchUserProfileData() {
         val userId = auth.currentUser?.uid
         val userRef = database.getReference("UsersProfile").child(userId!!)
-        userRef.addValueEventListener(object : ValueEventListener{
+        userRef.addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
                     val user = snapshot.getValue(UserModel::class.java)
-                    if (user!=null){
+                    if (user != null) {
                         // Set Data On Header
                         welcomeMsg.setText("Hi ${user.name}")
-                        if (user.userimage!=null){
+                        if (user.userimage != null) {
                             Glide.with(this@MainActivity)
                                 .load(Uri.parse(user.userimage))
                                 .into(profile)
-                        }
-                        else{
+                        } else {
                             profile.setImageResource(R.drawable.account)
                         }
                     }
@@ -166,19 +186,18 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun loadFragment(fragment:Fragment,flag:Boolean){
+    fun loadFragment(fragment: Fragment, flag: Boolean) {
         val fm = supportFragmentManager
         val tr = fm.beginTransaction()
         val bundle = Bundle()
         Log.d("dieasesInMainActivity", "$dieasesLabel")
-        bundle.putString("dieases",dieasesLabel)
+        bundle.putString("dieases", dieasesLabel)
         fragment.arguments = bundle
-        if (flag==true){
-            tr.add(R.id.container,fragment)
-            fm.popBackStack("root_fragment",FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        if (flag == true) {
+            tr.add(R.id.container, fragment)
+            fm.popBackStack("root_fragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             tr.addToBackStack("root_fragment")
-        }
-        else{
+        } else {
             tr.replace(R.id.container, fragment)
             tr.addToBackStack(null)
         }
@@ -188,32 +207,54 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val fragment = supportFragmentManager.findFragmentById(R.id.container)
-        if(binding.drawer.isDrawerOpen(GravityCompat.START)){
+        if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
             binding.drawer.closeDrawer(GravityCompat.START)
-        }
-        else if (fragment is HomeFragment) {
+        } else if (fragment is HomeFragment) {
             Handler(Looper.getMainLooper()).postDelayed({
                 finish()
             }, 500)
-        }
-        else{
+        } else if (dieasesLabel != null && fragment is DoctorAppointmentFragment) {
+            finish()
+        } else {
             super.onBackPressed()
             var checkFragment = supportFragmentManager.findFragmentById(R.id.container)
-            when(checkFragment){
-                is HomeFragment->{binding.navigationView.setCheckedItem(R.id.home)}
-                is DieasesInformationFragment->{binding.navigationView.setCheckedItem(R.id.Dieasesinfo)}
-                is DoctorAppointmentFragment->{binding.navigationView.setCheckedItem(R.id.appointment)}
-                is Appointment_Status_Fragment->{binding.navigationView.setCheckedItem(R.id.appointstatus)}
-                is BMICalculatorFragment->{binding.navigationView.setCheckedItem(R.id.bmi)}
-                is UploadDataFragment->{binding.navigationView.setCheckedItem(R.id.savepatientsdata)}
+            when (checkFragment) {
+                is HomeFragment -> {
+                    binding.navigationView.setCheckedItem(R.id.home)
+                }
+
+                is DieasesInformationFragment -> {
+                    binding.navigationView.setCheckedItem(R.id.Dieasesinfo)
+                }
+
+                is DoctorAppointmentFragment -> {
+                    binding.navigationView.setCheckedItem(R.id.appointment)
+                }
+
+                is Appointment_Status_Fragment -> {
+                    binding.navigationView.setCheckedItem(R.id.appointstatus)
+                }
+
+                is BMICalculatorFragment -> {
+                    binding.navigationView.setCheckedItem(R.id.bmi)
+                }
+
+                is UploadDataFragment -> {
+                    binding.navigationView.setCheckedItem(R.id.savepatientsdata)
+                }
+
+                is HealthNews -> {
+                    binding.navigationView.setCheckedItem(R.id.health_news)
+                }
+
             }
         }
     }
 
-    fun getStatusBarHeight():Int{
+    fun getStatusBarHeight(): Int {
         var result = 0
-        val resourceId = resources.getIdentifier("status_bar_height","dimen","android")
-        if (resourceId>0){
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
             result = resources.getDimensionPixelSize(resourceId)
         }
         return result

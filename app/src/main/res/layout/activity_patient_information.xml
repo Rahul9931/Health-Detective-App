@@ -16,11 +16,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/patientImage_patinfo"
-            android:transitionName="patient_img"
             android:layout_width="@dimen/dim_250"
             android:layout_height="@dimen/dim_250"
             android:layout_marginTop="@dimen/dim_50"
             android:src="@drawable/account"
+            android:transitionName="patient_img"
             app:civ_border_color="@color/black"
             app:civ_border_width="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,6 @@
 
         <EditText
             android:id="@+id/patname_edt"
-            android:transitionName="patient_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -50,6 +49,7 @@
             android:fontFamily="@string/custom_bold_text1"
             android:textColor="@color/black"
             android:textSize="@dimen/dim_45"
+            android:transitionName="patient_name"
             app:layout_constraintBottom_toBottomOf="@+id/patname_txt"
             app:layout_constraintStart_toEndOf="@+id/patname_txt"
             app:layout_constraintTop_toTopOf="@+id/patname_txt" />
@@ -118,15 +118,16 @@
 
         <EditText
             android:id="@+id/patdieases_edt"
-            android:transitionName="dieases"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:enabled="false"
             android:fontFamily="@string/custom_bold_text1"
             android:textColor="@color/black"
             android:textSize="@dimen/dim_45"
+            android:transitionName="dieases"
             app:layout_constraintBottom_toBottomOf="@+id/patdieases_txt"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toEndOf="@+id/patdieases_txt"
             app:layout_constraintTop_toTopOf="@+id/patdieases_txt"
             app:layout_constraintVertical_bias="0.0" />
@@ -141,18 +142,19 @@
             android:textColor="@color/black"
             android:textSize="@dimen/dim_45"
             app:layout_constraintStart_toStartOf="@+id/patdieases_txt"
-            app:layout_constraintTop_toBottomOf="@+id/patdieases_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/patdieases_edt" />
 
         <EditText
             android:id="@+id/addedt"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:enabled="false"
             android:fontFamily="@string/custom_bold_text1"
             android:textColor="@color/black"
-            android:textSize="@dimen/dim_40"
+            android:textSize="@dimen/dim_45"
             app:layout_constraintBottom_toBottomOf="@+id/addtxt"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toEndOf="@+id/addtxt"
             app:layout_constraintTop_toTopOf="@+id/addtxt" />
 
@@ -166,7 +168,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/dim_45"
             app:layout_constraintStart_toStartOf="@+id/addtxt"
-            app:layout_constraintTop_toBottomOf="@+id/addtxt" />
+            app:layout_constraintTop_toBottomOf="@+id/addedt" />
 
         <EditText
             android:id="@+id/phoneedt"
@@ -220,7 +222,6 @@
 
         <EditText
             android:id="@+id/dateedt"
-            android:transitionName="date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -228,6 +229,7 @@
             android:fontFamily="@string/custom_bold_text1"
             android:textColor="@color/black"
             android:textSize="@dimen/dim_45"
+            android:transitionName="date"
             app:layout_constraintBottom_toBottomOf="@+id/datetxt"
             app:layout_constraintStart_toEndOf="@+id/datetxt"
             app:layout_constraintTop_toTopOf="@+id/datetxt"
@@ -247,7 +249,6 @@
 
         <EditText
             android:id="@+id/timeedt"
-            android:transitionName="time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -255,9 +256,18 @@
             android:fontFamily="@string/custom_bold_text1"
             android:textColor="@color/black"
             android:textSize="@dimen/dim_45"
+            android:transitionName="time"
             app:layout_constraintBottom_toBottomOf="@+id/timetxt"
             app:layout_constraintStart_toEndOf="@+id/timetxt"
             app:layout_constraintTop_toTopOf="@+id/timetxt" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dim_20"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

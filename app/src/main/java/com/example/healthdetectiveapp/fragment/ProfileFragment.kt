@@ -33,7 +33,8 @@ class ProfileFragment : Fragment() {
     private val database=FirebaseDatabase.getInstance()
     private lateinit var userRef:DatabaseReference
     private var userimage: Uri? =null
-    private val genderList = mutableListOf("Male", "Female", "Other")
+    private var gellaryImage = false
+    private val genderList = arrayOf("Male", "Female", "Other")
     private lateinit var readId:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +64,6 @@ class ProfileFragment : Fragment() {
             address.isEnabled = false
             phoneno.isEnabled = false
             email.isEnabled = false
-            passward.isEnabled = false
             readid.isEnabled = false
             userimage.isEnabled = false
             btnUpdateProfile.visibility = View.GONE
@@ -83,7 +83,6 @@ class ProfileFragment : Fragment() {
                 address.isEnabled = !address.isEnabled
                 phoneno.isEnabled = !phoneno.isEnabled
                 email.isEnabled = !email.isEnabled
-                passward.isEnabled = !passward.isEnabled
                 userimage.isEnabled = !userimage.isEnabled
                 readid.isEnabled = !readid.isEnabled
             }
@@ -104,7 +103,6 @@ class ProfileFragment : Fragment() {
             Status("Text Copy to Clipboard")
         }
         binding.btnUpdateProfile.setOnClickListener {
-            binding.progressBar.visibility = View.VISIBLE
             binding.apply {
                 val name = username.text.toString().trim()
                 val age = age.text.toString().trim()
@@ -112,9 +110,8 @@ class ProfileFragment : Fragment() {
                 val address = address.text.toString().trim()
                 val phone = phoneno.text.toString().trim()
                 val email = email.text.toString().trim()
-                val passward = passward.text.toString().trim()
                 val readid = readid.text.toString().trim()
-                updateUserData(name,age,gender,address,phone,email,passward,readid)
+                updateUserData(name,age,gender,address,phone,email,readid)
             }
         }
         return binding.root
@@ -127,7 +124,6 @@ class ProfileFragment : Fragment() {
         address: String,
         phone: String,
         email: String,
-        passward: String,
         readid:String
     ) {
         // Performing Validation
@@ -141,13 +137,7 @@ class ProfileFragment : Fragment() {
                         binding.email.error = null
                         if (email.matches("^[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex())){
                             binding.email.error = null
-                            if (!passward.isEmpty()){
-                                binding.passward.error = null
-                                uploadData(name, age, gender, address, phone, email, passward,readid)
-                            }
-                            else{
-                                binding.passward.error ="Please Fill Passward"
-                            }
+                            uploadData(name, age, gender, address, phone, email,readid)
                         }
                         else{
                             binding.email.error = "Please Fill Valid Email"
@@ -177,36 +167,60 @@ class ProfileFragment : Fragment() {
         address: String,
         phone: String,
         email: String,
-        passward: String,
         readid: String
     ) {
         // Update Data
+        binding.progressBar.visibility = View.VISIBLE
         val userId = auth.currentUser?.uid
         userRef = database.getReference("UsersProfile").child(userId!!)
         val storageRef = FirebaseStorage.getInstance().reference
         val userImageRef = storageRef.child("users_images/${userId}.jpg")
         if (userimage!=null){
-            val uploadImage = userImageRef.putFile(userimage!!)
-            uploadImage.addOnSuccessListener {
-                userImageRef.downloadUrl.addOnSuccessListener {
-                        downloadUrl->
+            if (gellaryImage){
+                val uploadImage = userImageRef.putFile(userimage!!)
+                uploadImage.addOnSuccessListener {
+                    userImageRef.downloadUrl.addOnSuccessListener {
+                            downloadUrl->
 
-                    // User model
-                    val userData1 = UserModel(userId, name, age, gender, address, phone, email, passward,readid,downloadUrl.toString())
-                    userRef.setValue(userData1).addOnSuccessListener {
-                        binding.progressBar.visibility = View.GONE
-                        Status("Profile Successfully Update")
+                        // User model
+                        val userData1 = UserModel(userId, name, age, gender, address, phone, email,readid,downloadUrl.toString())
+                        userRef.setValue(userData1).addOnSuccessListener {
+                            binding.progressBar.visibility = View.GONE
+                            Status("Profile Successfully Update")
+                        }
+                            .addOnFailureListener {
+                                binding.progressBar.visibility = View.GONE
+                                Toast.makeText(requireContext(), "Profile Not Updated", Toast.LENGTH_SHORT).show()
+                            }
                     }
                 }
             }
+            else{
+                // User model
+                val userData1 = UserModel(userId, name, age, gender, address, phone, email,readid,userimage.toString())
+                userRef.setValue(userData1).addOnSuccessListener {
+                    binding.progressBar.visibility = View.GONE
+                    Status("Profile Successfully Update")
+                }
+                    .addOnFailureListener {
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(requireContext(), "Profile Not Updated", Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+
         }
         else{
             // User model
-            val userData2 = UserModel(userId, name, age, gender, address, phone, email, passward,readid,userimage = null)
+            val userData2 = UserModel(userId, name, age, gender, address, phone, email,readid,userimage = null)
             userRef.setValue(userData2).addOnSuccessListener {
                 binding.progressBar.visibility = View.GONE
                 Status("Profile Successfully Update")
             }
+                .addOnFailureListener {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(requireContext(), "Profile Not Updated", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 
@@ -230,7 +244,7 @@ class ProfileFragment : Fragment() {
                                 binding.age.setText(user.age)
                             }
                             if (user.gender!=null){
-                                binding.autocompleteProfile.setText(user.gender)
+                                binding.autocompleteProfile.setText(user.gender,false)
                             }
                             if (user.address!=null){
                                 binding.address.setText(user.address)
@@ -238,7 +252,6 @@ class ProfileFragment : Fragment() {
                             binding.username.setText(user.name)
                             binding.phoneno.setText(user.phone)
                             binding.email.setText(user.email)
-                            binding.passward.setText(user.passward)
                             binding.readid.setText(user.readid)
                         }
                     }
@@ -257,6 +270,7 @@ class ProfileFragment : Fragment() {
         if (uri!=null){
             binding.userimage.setImageURI(uri)
             userimage = uri
+            gellaryImage = true
         }
     }
     fun Status(s1:String){

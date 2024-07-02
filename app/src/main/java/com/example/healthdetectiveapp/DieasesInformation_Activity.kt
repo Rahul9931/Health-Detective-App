@@ -33,12 +33,13 @@ class DieasesInformation_Activity : AppCompatActivity() {
         when(request){
             "dieasesInformation" ->{
                 val index = intent.getIntExtra("urlIndex",5)
+                Log.d("check_index2","$index")
                 var url = dieasesurl[index]
                 webview.loadUrl("$url")
             }
             "bmiResultInformation" ->{
-                var bmiResultUrl = intent.getStringExtra("bmiResultUrl")
-                webview.loadUrl("$bmiResultUrl")
+                val url = dieasesurl[47]
+                webview.loadUrl("$url")
             }
             "opendocument" ->{
                 val fileurl = intent.getStringExtra("fileurl")
@@ -46,6 +47,7 @@ class DieasesInformation_Activity : AppCompatActivity() {
                 val filemime = intent.getStringExtra("mimetype")
                 if (filemime!!.startsWith("image")){
                     binding.doctorSearch.visibility = View.GONE
+                    binding.txtSearch.visibility = View.GONE
                     webview.visibility = View.GONE
                     binding.webimg.visibility = View.VISIBLE
                     Glide.with(this).load(Uri.parse(fileurl)).into(binding.webimg)
@@ -56,6 +58,12 @@ class DieasesInformation_Activity : AppCompatActivity() {
                     webview.visibility = View.VISIBLE
                     val url = URLEncoder.encode(fileurl,"UTF-8")
                     webview.loadUrl("http://docs.google.com/gview?embedded=true&url=" + url)
+                }
+            }
+            "HealthNews" -> {
+                val url = intent.getStringExtra("url")
+                if (url != null) {
+                    webview.loadUrl(url)
                 }
             }
         }

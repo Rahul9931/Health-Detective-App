@@ -2,6 +2,7 @@ package com.example.healthdetectiveapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,7 @@ class DieasesInformationFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDieasesInformationBinding.inflate(layoutInflater,container,false)
         // Fetching dieases from dieases.txt
-        val fileName = "alldieases.txt"
+        val fileName = "disease_HE"
         val inputString = context?.assets?.open(fileName)?.bufferedReader().use { it?.readText() }
         var dieasesList = inputString?.split("\n")
 
@@ -41,8 +42,10 @@ class DieasesInformationFragment : Fragment() {
         // Set Get Information Button
         binding.getdieasesinfo.setOnClickListener {
             val dieases = autoComplete.text.toString()
+            Log.d("check_disease","$dieases")
             if (dieases.isNotEmpty()){
                 val index = dieasesList.indexOf(dieases)
+                Log.d("check_index1","$index")
                 val dieasesInfoIntent = Intent(requireContext(), DieasesInformation_Activity::class.java)
                 dieasesInfoIntent.putExtra("urlIndex",index)
                 dieasesInfoIntent.putExtra("requestCode","dieasesInformation")

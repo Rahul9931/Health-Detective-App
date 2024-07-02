@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/news_container_4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_300"
+        android:layout_margin="@dimen/dim_15"
+        app:cardCornerRadius="@dimen/dim_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/news_container_card2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dim_10">
+
+            <ImageView
+                android:id="@+id/img_update"
+                android:layout_width="@dimen/dim_250"
+                android:layout_height="@dimen/dim_250"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txt_title2"
+                android:layout_width="184dp"
+                android:layout_height="99dp"
+                android:layout_marginStart="@dimen/dim_15"
+                android:fontFamily="@font/baloo"
+                android:text="Title of the topic is "
+                android:textAlignment="textStart"
+                android:textSize="@dimen/text_dim_40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_update"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_author2"
+                android:layout_width="180dp"
+                android:layout_height="53dp"
+                android:text="Title of the "
+                android:textSize="@dimen/text_dim_40"
+                app:layout_constraintStart_toStartOf="@+id/txt_title2"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

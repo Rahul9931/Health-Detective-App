@@ -9,6 +9,7 @@
 
         <ImageView
             android:id="@+id/fileimage_filescard"
+            android:transitionName="file_image"
             android:layout_width="@dimen/dim_120"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dim_10"

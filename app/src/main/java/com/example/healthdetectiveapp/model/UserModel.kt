@@ -8,7 +8,6 @@ data class UserModel(
     val address:String?=null,
     val phone:String?=null,
     val email:String?=null,
-    val passward:String?=null,
     val readid:String?=null,
     val userimage:String?=null
 

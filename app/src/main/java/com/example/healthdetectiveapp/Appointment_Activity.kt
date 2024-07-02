@@ -5,12 +5,14 @@ import android.app.TimePickerDialog
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.healthdetectiveapp.databinding.ActivityAppointmentBinding
 import com.example.healthdetectiveapp.model.PatientModel
 import com.google.android.material.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import java.util.Calendar
@@ -35,6 +37,7 @@ class Appointment_Activity : AppCompatActivity() {
     private lateinit var selectedDate: String
     private lateinit var selectedTime: String
     private lateinit var database: FirebaseDatabase
+    private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -47,7 +50,7 @@ class Appointment_Activity : AppCompatActivity() {
         autoComplete.setAdapter(autocompleteAdapter)
 
         // Fetching dieases from dieaseslabels.txt
-        val allDieases = "alldieases.txt"
+        val allDieases = "disease_HE"
         val allDieasesInput =
             application.assets.open(allDieases).bufferedReader().use { it.readText() }
         var allDieasesList = allDieasesInput.split("\n")
@@ -127,16 +130,6 @@ class Appointment_Activity : AppCompatActivity() {
                                                 if (!selectedTime.isEmpty()) {
                                                     binding.time.error = null
                                                     uploadPatientData()
-                                                    binding.date.text = "Date"
-                                                    binding.time.text = "Time"
-                                                    binding.patientname.text?.clear()
-                                                    binding.age.text?.clear()
-                                                    binding.autocompleteAppointment.text.clear()
-                                                    binding.phoneno.text?.clear()
-                                                    binding.email.text?.clear()
-                                                    binding.address.text?.clear()
-                                                    binding.autocompleteAlldieaseseAppointment.text.clear()
-                                                    binding.patientImage.setImageResource(r.drawable.account)
                                                 } else {
                                                     binding.time.error = "Please Select Time"
                                                 }
@@ -175,9 +168,11 @@ class Appointment_Activity : AppCompatActivity() {
     }
 
     private fun uploadPatientData() {
-        val patientRef = database.getReference("PatientsList")
+        val userId = auth.currentUser!!.uid
+        val patientRef = database.getReference("PatientsList").child(userId)
         val newItemsKey = patientRef.push().key
         if (patientImage!=null){
+            binding.progressBar.visibility = View.VISIBLE
             val storageRef = FirebaseStorage.getInstance().reference
             val imageRef = storageRef.child("Patients_Image/${newItemsKey}.jpg")
             val uploadTask = imageRef.putFile(patientImage!!)
@@ -187,13 +182,29 @@ class Appointment_Activity : AppCompatActivity() {
                     // Assign Model
                     val patientData = PatientModel(newItemsKey,patientName,downloadurl.toString(),age, gender, dieases, phoneno, email, address, date, time)
                     patientRef.child(newItemsKey!!).setValue(patientData).addOnSuccessListener {
+                        binding.progressBar.visibility = View.GONE
                         Toast.makeText(this, "Your Appointment is Fix", Toast.LENGTH_SHORT).show()
+                        binding.date.text = "Date"
+                        binding.time.text = "Time"
+                        binding.patientname.text?.clear()
+                        binding.age.text?.clear()
+                        binding.autocompleteAppointment.text.clear()
+                        binding.phoneno.text?.clear()
+                        binding.email.text?.clear()
+                        binding.address.text?.clear()
+                        binding.autocompleteAlldieaseseAppointment.text.clear()
+                        binding.patientImage.setImageResource(r.drawable.account)
                     }
                         .addOnFailureListener {
+                            binding.progressBar.visibility = View.GONE
                             Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
             }
+        }
+        else{
+            binding.progressBar.visibility = View.GONE
+            Toast.makeText(this, "Please Select an Image", Toast.LENGTH_SHORT).show()
         }
     }
     // Pick Image From Gallery

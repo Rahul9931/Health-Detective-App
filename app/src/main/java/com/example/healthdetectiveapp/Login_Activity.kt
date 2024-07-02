@@ -27,6 +27,9 @@ class Login_Activity : AppCompatActivity() {
         binding.btnSignup.setOnClickListener {
             startActivity(Intent(this,SignUp_Activity::class.java))
         }
+        binding.btnForget.setOnClickListener {
+            startActivity(Intent(this,ForgotPasswordActivity::class.java))
+        }
         binding.btnLogin.setOnClickListener {
             email = binding.emailLogin.text.toString().trim()
             passward = binding.password.text.toString().trim()

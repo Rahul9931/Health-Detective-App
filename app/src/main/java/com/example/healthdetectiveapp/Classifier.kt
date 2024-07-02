@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.util.Log
 import android.widget.Toast
 import com.example.healthdetectiveapp.ml.AlzimerTfmodel
-import com.example.healthdetectiveapp.ml.BrainTumor10Epochs
+import com.example.healthdetectiveapp.ml.BrainTumor
 import com.example.healthdetectiveapp.ml.LungsCancertf
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
@@ -19,7 +19,7 @@ class Classifier(
 // Brain Tumar Prediction
     fun brainTumar():String{
         val resized: Bitmap = Bitmap.createScaledBitmap(bitmap,64,64,true)
-        val model = BrainTumor10Epochs.newInstance(context)
+        val model = BrainTumor.newInstance(context)
 
         val tensorimg = TensorImage(DataType.FLOAT32)
         tensorimg.load(resized)

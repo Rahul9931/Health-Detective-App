@@ -26,13 +26,13 @@ class BMICalculatorFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentBmiCalculatorBinding.inflate(layoutInflater)
 
-        binding.feetpicker.minValue = 3
+        binding.feetpicker.minValue = 2
         binding.feetpicker.maxValue = 8
 
-        binding.inchpicker.minValue = 1
+        binding.inchpicker.minValue = 0
         binding.inchpicker.maxValue = 12
 
-        binding.weightpicker2.minValue = 25
+        binding.weightpicker2.minValue = 15
         binding.weightpicker2.maxValue = 250
 
         binding.calculatebmi.setOnClickListener {

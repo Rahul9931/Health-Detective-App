@@ -39,19 +39,19 @@ class HomeFragment : Fragment() {
         binding.brainTumarCard.setOnClickListener {
             val brainIntent = Intent(requireContext(),DieasesDiagnoseByImage::class.java)
             brainIntent.putExtra("cardKey",1)
-            brainIntent.putExtra("disease","Brain Tumar")
+            brainIntent.putExtra("disease","Brain Tumor - मस्तिष्क का ट्यूमर")
             startActivity(brainIntent)
         }
         binding.AlzimerCard.setOnClickListener {
             val alzimerIntent = Intent(requireContext(),DieasesDiagnoseByImage::class.java)
             alzimerIntent.putExtra("cardKey",2)
-            alzimerIntent.putExtra("disease","Alzimer")
+            alzimerIntent.putExtra("disease","Alzheimer's disease - आल्ज़ाइमर रोग")
             startActivity(alzimerIntent)
         }
         binding.LungsCancerCard.setOnClickListener {
             val lungsCancerIntent = Intent(requireContext(),DieasesDiagnoseByImage::class.java)
             lungsCancerIntent.putExtra("cardKey",3)
-            lungsCancerIntent.putExtra("disease","Lungs Cancer")
+            lungsCancerIntent.putExtra("disease","Lung Cancer - फेफड़े का कैंसर")
             startActivity(lungsCancerIntent)
         }
         return binding.root
@@ -72,15 +72,6 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
         imageSlider.setImageList(imageList, ScaleTypes.FIT)
         imageSlider.setSlideAnimation(AnimationTypes.DEPTH_SLIDE)
-        imageSlider.setItemClickListener(object : ItemClickListener {
-            override fun doubleClick(position: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onItemSelected(position: Int) {
-                Log.d("SliderId","${position}")
-            }
-        })
     }
 
 }

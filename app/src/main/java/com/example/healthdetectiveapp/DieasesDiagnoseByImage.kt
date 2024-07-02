@@ -12,7 +12,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.healthdetectiveapp.databinding.ActivityDieasesDiagnoseByImageBinding
-import com.example.healthdetectiveapp.ml.BrainTumor10Epochs
+import com.example.healthdetectiveapp.ml.BrainTumor
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -33,6 +33,7 @@ class DieasesDiagnoseByImage : AppCompatActivity() {
 
         val cardvalue = intent.getIntExtra("cardKey",0)
         dieases = intent.getStringExtra("disease")!!
+        Log.d("check_img","${dieases}")
         binding.btnShowResult.isEnabled = false
         binding.txtWarning.setText("Please choose ${dieases} Images for right result otherwise it gives wrong result")
         binding.btnGallery.setOnClickListener {
@@ -63,6 +64,7 @@ class DieasesDiagnoseByImage : AppCompatActivity() {
         // Set Dieases Url Information
         binding.dieasesInfoImage.setOnClickListener {
             val braintumarInfoIntent = Intent(this,DieasesInformation_Activity::class.java)
+            braintumarInfoIntent.putExtra("requestCode","dieasesInformation")
             braintumarInfoIntent.putExtra("urlIndex",index)
             startActivity(braintumarInfoIntent)
         }
@@ -93,7 +95,8 @@ class DieasesDiagnoseByImage : AppCompatActivity() {
             capturePhoto()
         }
     }
-// Pick Image From Gallery
+
+    // Pick Image From Gallery
     val pickimage = registerForActivityResult(ActivityResultContracts.GetContent()){
             uri ->
         if (uri!=null){

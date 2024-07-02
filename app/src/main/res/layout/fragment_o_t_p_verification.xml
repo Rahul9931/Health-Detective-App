@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.OTPVerificationFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/otp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_10"
+        android:fontFamily="@font/baloo"
+        android:text="OTP Verification"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_dim_50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_20"
+        android:fontFamily="@string/custom_simple_text1"
+        android:text="Please Enter the OTP sent to you"
+        android:textColor="@color/liteblack2"
+        android:textSize="@dimen/text_dim_35"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_marginTop="@dimen/dim_30"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20">
+
+        <EditText
+            android:id="@+id/edt1"
+            android:layout_width="@dimen/dim_95"
+            android:layout_height="@dimen/dim_100"
+            android:background="@drawable/otpbox"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_40"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt2"
+            android:layout_width="@dimen/dim_95"
+            android:layout_height="@dimen/dim_100"
+            android:layout_marginStart="@dimen/dim_5"
+            android:background="@drawable/otpbox"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_40"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt3"
+            android:layout_width="@dimen/dim_95"
+            android:layout_height="@dimen/dim_100"
+            android:layout_marginStart="@dimen/dim_5"
+            android:background="@drawable/otpbox"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_40"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt4"
+            android:layout_width="@dimen/dim_95"
+            android:layout_height="@dimen/dim_100"
+            android:layout_marginStart="@dimen/dim_5"
+            android:background="@drawable/otpbox"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_40"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt5"
+            android:layout_width="@dimen/dim_95"
+            android:layout_height="@dimen/dim_100"
+            android:layout_marginStart="@dimen/dim_5"
+            android:background="@drawable/otpbox"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_40"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt6"
+            android:layout_width="@dimen/dim_95"
+            android:layout_height="@dimen/dim_100"
+            android:layout_marginStart="@dimen/dim_5"
+            android:background="@drawable/otpbox"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_dim_40"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@string/custom_simple_text1"
+        android:text="Didn't receive the otp "
+        android:textColor="@color/liteblack2"
+        android:textSize="@dimen/text_dim_35"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_resend"
+        app:layout_constraintEnd_toStartOf="@+id/btn_resend"
+        app:layout_constraintTop_toTopOf="@+id/btn_resend" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.TextButton"
+        android:id="@+id/btn_resend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:fontFamily="@font/baloo"
+        android:text="RESEND OTP"
+        android:textColor="@color/Softblue_skyblue3"
+        android:textSize="@dimen/text_dim_35"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20"
+        android:layout_marginEnd="@dimen/dim_20"
+        android:text="Continue"
+        android:textSize="@dimen/text_dim_45"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="@dimen/dim_100"
-    android:background="@drawable/bottom_sheet_background"
-    android:layout_marginStart="@dimen/dim_30"
-    android:layout_marginEnd="@dimen/dim_30"
     tools:context=".fragment.uploadRecordFragment">
 
 

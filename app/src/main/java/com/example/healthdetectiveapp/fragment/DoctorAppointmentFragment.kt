@@ -1,7 +1,6 @@
 package com.example.healthdetectiveapp.fragment
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,7 +14,6 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.healthdetectiveapp.R
-import com.example.healthdetectiveapp.Recommender_Activity
 import com.example.healthdetectiveapp.adapter.DoctorsListAdapter
 import com.example.healthdetectiveapp.databinding.FragmentDoctorAppointmentBinding
 import com.example.healthdetectiveapp.model.doctors
@@ -48,8 +46,8 @@ class DoctorAppointmentFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDoctorAppointmentBinding.inflate(layoutInflater,container,false)
 
-        // Fetching dieases from dieaseslabels.txt
-        val fileName = "alldieases.txt"
+        // Fetching dieases from dieases_HE
+        val fileName = "disease_HE"
         val inputString = context?.assets?.open(fileName)?.bufferedReader().use { it?.readText() }
         finaldieases = inputString?.split("\n") as MutableList<String>
 
@@ -99,17 +97,12 @@ class DoctorAppointmentFragment : Fragment() {
 
     private fun dieasesToSpecialist(dieasesLabel:String):String {
         var ind= 0
-        Log.d("dieasesToSpecialist5","${finaldieases[2]}")
-        Log.d("dieasesToSpecialist6","${finaldieases[2].length}")
         for (i in 0..finaldieases.size-1){
             if (finaldieases[i].trim().equals(dieasesLabel.trim())){
                 ind = i
-                Log.d("dieasesToSpecialist1","${i}")
+                break
             }
-            Log.d("dieasesToSpecialist2","$i")
         }
-        Log.d("dieasesToSpecialist3","${finaldieases[ind]}")
-        Log.d("dieasesToSpecialist4","${dieasesLabel}")
         val specialist = specialistList.get(ind)
         return specialist
     }
@@ -135,6 +128,7 @@ class DoctorAppointmentFragment : Fragment() {
                 }
                 // Check Bundle Passing
                 val dieasesLabel = requireArguments().get("dieases").toString()
+                Log.d("argument_1","$dieasesLabel")
                 if (dieasesLabel.equals("null")){
                     Log.d("argument_if", "$arguments")
                     setAdapter(doctorsArrayList)
@@ -143,10 +137,6 @@ class DoctorAppointmentFragment : Fragment() {
                     Log.d("argument_else", "$arguments")
                     val specialist = dieasesToSpecialist(dieasesLabel)
                     val list = filterSpecialist(specialist)
-                    Log.d("argument_dL_length","${dieasesLabel.length}")
-                    Log.d("argument_dieasesLabel", "$dieasesLabel")
-                    Log.d("argument_specialist", "$specialist")
-                    Log.d("argument_list", "$list")
                     setAdapter(list as ArrayList<doctors>)
                 }
                 Log.d("doctorList","${doctorsArrayList}")

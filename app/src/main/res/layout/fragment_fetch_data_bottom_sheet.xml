@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bottom_sheet_background"
+    android:layout_marginBottom="@dimen/dim_100"
     android:layout_marginStart="@dimen/dim_30"
     android:layout_marginEnd="@dimen/dim_30"
     tools:context=".fragment.FetchDataBottomSheetFragment">
@@ -42,7 +42,6 @@
         android:layout_marginStart="@dimen/dim_20"
         android:layout_marginTop="@dimen/dim_10"
         android:layout_marginEnd="@dimen/dim_20"
-        app:boxStrokeErrorColor="@color/red"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

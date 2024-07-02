@@ -10,7 +10,8 @@ import com.example.healthdetectiveapp.databinding.UploadFilesDialogCardBinding
 
 class UploadFilesAdapter(
     val files:List<String>,
-    val status:List<String>
+    val status:List<String>,
+    val fileSize:List<String>
 ): RecyclerView.Adapter<UploadFilesAdapter.UploadFileViewHolder>() {
     private var lastPosition = -1
     inner class UploadFileViewHolder(val binding: UploadFilesDialogCardBinding):RecyclerView.ViewHolder(binding.root) {
@@ -42,6 +43,10 @@ class UploadFilesAdapter(
         else{
             holder.binding.status.setImageResource(R.drawable.checked)
         }
+
+        // Set File Size
+        holder.binding.fileSize.text = fileSize.get(position)
+
     }
 
     private fun setAnimation(view: View, position: Int){

@@ -20,6 +20,7 @@ import com.example.healthdetectiveapp.databinding.FragmentUploadDataBinding
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import android.content.ContentResolver
+import android.content.Context
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuInflater

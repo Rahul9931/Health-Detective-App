@@ -94,7 +94,7 @@ class SignUp_Activity : AppCompatActivity() {
         val readId = generatePassword(15)
         if (userId!=null){
             val userRef = database.getReference("UsersProfile").child(userId)
-            val userData = UserModel(key = userId, name = username, phone = phone, email = email, passward = passward, readid = readId)
+            val userData = UserModel(key = userId, name = username, phone = phone, email = email, readid = readId)
             userRef.setValue(userData).addOnSuccessListener {
                 Toast.makeText(this, "Account Created Successful", Toast.LENGTH_SHORT).show()
                 val gotoMain = Intent(this,MainActivity::class.java)

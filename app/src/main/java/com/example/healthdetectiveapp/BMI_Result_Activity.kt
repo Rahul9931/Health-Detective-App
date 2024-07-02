@@ -31,7 +31,7 @@ class BMI_Result_Activity : AppCompatActivity() {
             binding.cardcontainer.background.setTint(resources.getColor(R.color.skyblue9))
             binding.msg.text = "You Are Underweight"
             binding.msg.setTextColor(resources.getColor(R.color.skyblue9))
-            dieases = "Underweight"
+            dieases = "Underweight - अवजान"
             index = 44
         }
         else if (bmiResult>=18.5 && bmiResult<25){
@@ -44,19 +44,20 @@ class BMI_Result_Activity : AppCompatActivity() {
             binding.cardcontainerorange.background.setTint(resources.getColor(R.color.orange))
             binding.msg.text = "You Are Overweight"
             binding.msg.setTextColor(resources.getColor(R.color.orange))
-            dieases = "Overweight"
+            dieases = "Overweight - अतिरिक्त वजन"
             index = 45
         }
         else{
             binding.cardcontainerred.background.setTint(resources.getColor(R.color.red))
             binding.msg.text = "You Have Obese Body \nWeight"
             binding.msg.setTextColor(resources.getColor(R.color.red))
-            dieases = "Obese"
+            dieases = "Obese - मोटापा"
             index = 46
         }
         // Set BMI Category Result information
         binding.bmiresultInfo.setOnClickListener {
             val bmiResultIntent = Intent(this, DieasesInformation_Activity::class.java)
+            bmiResultIntent.putExtra("requestCode","dieasesInformation")
             bmiResultIntent.putExtra("urlIndex",index)
             startActivity(bmiResultIntent)
         }

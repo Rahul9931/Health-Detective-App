@@ -42,4 +42,11 @@
         android:icon="@drawable/save_patients_data"
         android:iconTint="@color/black"
         />
+    <item
+        android:id="@+id/health_news"
+        android:title="Health News"
+        android:checkable="true"
+        android:icon="@drawable/health_news_icon"
+        android:iconTint="@color/black"
+        />
 </menu>

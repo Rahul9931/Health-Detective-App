@@ -9,6 +9,7 @@
 
     <ImageView
         android:id="@+id/webimg"
+        android:transitionName="file_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
@@ -44,13 +45,14 @@
 
     <TextView
         android:id="@+id/txt_search"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dim_280"
+        android:textAlignment="center"
         android:text="Searching..."
-        android:textSize="@dimen/dim_70"
         android:textColor="@color/Softblue_skyblue1"
+        android:textSize="@dimen/dim_70"
         android:textStyle="bold"
-        android:layout_marginBottom="@dimen/dim_300"
         app:layout_constraintBottom_toBottomOf="@+id/doctorSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

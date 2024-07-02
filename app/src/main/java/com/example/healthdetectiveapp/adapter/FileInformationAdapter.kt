@@ -1,5 +1,6 @@
 package com.example.healthdetectiveapp.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.healthdetectiveapp.DieasesInformation_Activity
@@ -65,11 +68,14 @@ class FileInformationAdapter(private val context: Context,private var fileinfoLi
         }
         holder.binding.filecontainerFilecard.setOnClickListener {
             val showDocument = Intent(context,DieasesInformation_Activity::class.java)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as Activity,
+                Pair.create(holder.binding.fileimageFilescard,"file_image"),
+            )
             showDocument.putExtra("fileurl",file.fileUrl)
             showDocument.putExtra("filename", file.filename)
             showDocument.putExtra("mimetype",file.filemime)
             showDocument.putExtra("requestCode","opendocument")
-            context.startActivity(showDocument)
+            context.startActivity(showDocument,options.toBundle())
         }
     }
 

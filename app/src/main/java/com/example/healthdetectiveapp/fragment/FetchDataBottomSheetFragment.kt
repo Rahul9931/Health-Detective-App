@@ -44,6 +44,10 @@ class FetchDataBottomSheetFragment : BottomSheetDialogFragment() {
             val readid = binding.edtReadid.text.toString().trim()
             validate(email,readid)
         }
+
+        binding.btndismiss.setOnClickListener {
+            dismiss()
+        }
         return binding.root
     }
 
@@ -127,6 +131,7 @@ class FetchDataBottomSheetFragment : BottomSheetDialogFragment() {
         recyclerView?.layoutManager = LinearLayoutManager(requireContext())
         val patientsRecordsAdapter = PatientsRecordsAdapter(requireContext(),dateWiseFilesList)
         recyclerView?.adapter = patientsRecordsAdapter
+        dismiss()
     }
 
     fun setRecyclerView(rvPatientsrecord: RecyclerView) {

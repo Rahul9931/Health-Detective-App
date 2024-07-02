@@ -105,18 +105,20 @@
                 // End Passward
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btn_forget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_gravity="end"
                 android:backgroundTint="@color/white"
-                android:elevation="10dp"
+                android:fontFamily="@font/baloo"
                 android:text="Forget Password"
                 android:textAllCaps="false"
                 android:textColor="@color/skyblue13"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:visibility="invisible" />
+                android:textSize="@dimen/text_dim_35"
+                />
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"

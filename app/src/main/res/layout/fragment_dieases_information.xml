@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dim_150"
             android:background="@android:color/transparent"
+            app:endIconMode="dropdown_menu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4">
